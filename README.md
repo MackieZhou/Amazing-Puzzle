@@ -1,2 +1,2 @@
-# Best_Web_Crawler
+# Amazing Puzzle
 The final project for CSC 111
