@@ -32,16 +32,331 @@ class puzzle3():
         pygame.draw.rect(self.win, self.color, self.sq)
 
     def move_left(self):
-        self.x -= 1
+        if self.x == 1 and self.y == 1:
+            self.x = 1
+            self.y = 1
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 3:
+            self.x = 3
+            self.y = 1
+        elif self.x == 1 and self.y == 4:
+            self.x = 1
+            self.y = 4
+        elif self.x == 1 and self.y == 5:
+            self.x = 1
+            self.y = 5
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 2
+            self.y = 1
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 2
+        elif self.x == 2 and self.y == 3:
+            self.x = 1
+            self.y = 3
+        elif self.x == 2 and self.y == 4:
+            self.x = 2
+            self.y = 4
+        elif self.x == 2 and self.y == 5:
+            self.x = 2
+            self.y = 5
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 3
+            self.y = 1
+        elif self.x == 3 and self.y == 2:
+            self.x = 2
+            self.y = 2
+        elif self.x == 3 and self.y == 3:
+            self.x = 2
+            self.y = 3
+        elif self.x == 3 and self.y == 4:
+            self.x = 2
+            self.y = 4
+        elif self.x == 3 and self.y == 5:
+            self.x = 2
+            self.y = 5
+        # x = 4
+        elif self.x == 4 and self.y == 1:
+            self.x = 3
+            self.y = 1
+        elif self.x == 4 and self.y == 2:
+            self.x = 4
+            self.y = 2
+        elif self.x == 4 and self.y == 3:
+            self.x = 3
+            self.y = 3
+        elif self.x == 4 and self.y == 4:
+            self.x = 3
+            self.y = 4
+        elif self.x == 4 and self.y == 5:
+            self.x = 3
+            self.y = 5
+        # x = 5
+        elif self.x == 5 and self.y == 1:
+            self.x = 4
+            self.y = 1
+        elif self.x == 5 and self.y == 2:
+            self.x = 4
+            self.y = 2
+        elif self.x == 5 and self.y == 3:
+            self.x = 4
+            self.y = 3
+        elif self.x == 5 and self.y == 4:
+            self.x = 4
+            self.y = 4
+        elif self.x == 5 and self.y == 5:
+            self.x = 5
+            self.y = 5
 
     def move_right(self):
-        self.x += 1
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 1
+            self.y = 1
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 3:
+            self.x = 2
+            self.y = 3
+        elif self.x == 1 and self.y == 4:
+            self.x = 1
+            self.y = 4
+        elif self.x == 1 and self.y == 5:
+            self.x = 1
+            self.y = 5
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 2
+            self.y = 1
+        elif self.x == 2 and self.y == 2:
+            self.x = 3
+            self.y = 2
+        elif self.x == 2 and self.y == 3:
+            self.x = 3
+            self.y = 3
+        elif self.x == 2 and self.y == 4:
+            self.x = 3
+            self.y = 4
+        elif self.x == 2 and self.y == 5:
+            self.x = 3
+            self.y = 5
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 4
+            self.y = 1
+        elif self.x == 3 and self.y == 2:
+            self.x = 3
+            self.y = 2
+        elif self.x == 3 and self.y == 3:
+            self.x = 4
+            self.y = 3
+        elif self.x == 3 and self.y == 4:
+            self.x = 4
+            self.y = 4
+        elif self.x == 3 and self.y == 5:
+            self.x = 4
+            self.y = 5
+        # x = 4
+        elif self.x == 4 and self.y == 1:
+            self.x = 5
+            self.y = 1
+        elif self.x == 4 and self.y == 2:
+            self.x = 5
+            self.y = 2
+        elif self.x == 4 and self.y == 3:
+            self.x = 5
+            self.y = 3
+        elif self.x == 4 and self.y == 4:
+            self.x = 5
+            self.y = 4
+        elif self.x == 4 and self.y == 5:
+            self.x = 4
+            self.y = 5
+        # x = 5
+        elif self.x == 5 and self.y == 1:
+            self.x = 5
+            self.y = 3
+        elif self.x == 5 and self.y == 2:
+            self.x = 2
+            self.y = 1
+        elif self.x == 5 and self.y == 3:
+            self.x = 5
+            self.y = 1
+        elif self.x == 5 and self.y == 4:
+            self.x = 2
+            self.y = 5
+        elif self.x == 5 and self.y == 5:
+            self.x = 5
+            self.y = 5
 
     def move_up(self):
-        self.y -= 1
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 5
+            self.y = 5
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 1
+        elif self.x == 1 and self.y == 3:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 4:
+            self.x = 1
+            self.y = 3
+        elif self.x == 1 and self.y == 5:
+            self.x = 1
+            self.y = 4
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 5
+            self.y = 2
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 1
+        elif self.x == 2 and self.y == 3:
+            self.x = 2
+            self.y = 3
+        elif self.x == 2 and self.y == 4:
+            self.x = 2
+            self.y = 4
+        elif self.x == 2 and self.y == 5:
+            self.x = 2
+            self.y = 4
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 1
+            self.y = 3
+        elif self.x == 3 and self.y == 2:
+            self.x = 3
+            self.y = 1
+        elif self.x == 3 and self.y == 3:
+            self.x = 3
+            self.y = 3
+        elif self.x == 3 and self.y == 4:
+            self.x = 3
+            self.y = 4
+        elif self.x == 3 and self.y == 5:
+            self.x = 3
+            self.y = 5
+        # x = 4
+        elif self.x == 4 and self.y == 1:
+            self.x = 4
+            self.y = 1
+        elif self.x == 4 and self.y == 2:
+            self.x = 4
+            self.y = 2
+        elif self.x == 4 and self.y == 3:
+            self.x = 4
+            self.y = 2
+        elif self.x == 4 and self.y == 4:
+            self.x = 4
+            self.y = 4
+        elif self.x == 4 and self.y == 5:
+            self.x = 4
+            self.y = 5
+        # x = 5
+        elif self.x == 5 and self.y == 1:
+            self.x = 5
+            self.y = 1
+        elif self.x == 5 and self.y == 2:
+            self.x = 5
+            self.y = 2
+        elif self.x == 5 and self.y == 3:
+            self.x = 5
+            self.y = 3
+        elif self.x == 5 and self.y == 4:
+            self.x = 5
+            self.y = 4
+        elif self.x == 5 and self.y == 5:
+            self.x = 5
+            self.y = 4
 
     def move_down(self):
-        self.y += 1
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 3
+        elif self.x == 1 and self.y == 3:
+            self.x = 1
+            self.y = 4
+        elif self.x == 1 and self.y == 4:
+            self.x = 1
+            self.y = 5
+        elif self.x == 1 and self.y == 5:
+            self.x = 4
+            self.y = 5
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 2
+            self.y = 2
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 2
+        elif self.x == 2 and self.y == 3:
+            self.x = 2
+            self.y = 3
+        elif self.x == 2 and self.y == 4:
+            self.x = 2
+            self.y = 5
+        elif self.x == 2 and self.y == 5:
+            self.x = 5
+            self.y = 4
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 3
+            self.y = 2
+        elif self.x == 3 and self.y == 2:
+            self.x = 3
+            self.y = 2
+        elif self.x == 3 and self.y == 3:
+            self.x = 3
+            self.y = 3
+        elif self.x == 3 and self.y == 4:
+            self.x = 3
+            self.y = 4
+        elif self.x == 3 and self.y == 5:
+            self.x = 3
+            self.y = 5
+        # x = 4
+        elif self.x == 4 and self.y == 1:
+            self.x = 4
+            self.y = 1
+        elif self.x == 4 and self.y == 2:
+            self.x = 4
+            self.y = 3
+        elif self.x == 4 and self.y == 3:
+            self.x = 4
+            self.y = 3
+        elif self.x == 4 and self.y == 4:
+            self.x = 4
+            self.y = 4
+        elif self.x == 4 and self.y == 5:
+            self.x = 4
+            self.y = 5
+        # x = 5
+        elif self.x == 5 and self.y == 1:
+            self.x = 5
+            self.y = 1
+        elif self.x == 5 and self.y == 2:
+            self.x = 5
+            self.y = 2
+        elif self.x == 5 and self.y == 3:
+            self.x = 5
+            self.y = 3
+        elif self.x == 5 and self.y == 4:
+            self.x = 5
+            self.y = 5
+        elif self.x == 5 and self.y == 5:
+            self.x = 1
+            self.y = 1
 
     def coords(self):
         """return the tuple's coordinates"""
@@ -54,14 +369,14 @@ def main():
     # the grid takes up 300*300
     # the margin on each side is 50
     win = pygame.display.set_mode(size=(350, 350))
-    pygame.display.set_caption("Amazing Puzzle - Hard Level 9")
+    pygame.display.set_caption("Amazing Puzzle - Level 999")
 
     # colors:
     grey = (60, 60, 60)
     black = (0, 0, 0)
     red = (255, 0, 0)
     blue = (0, 0, 255)
-    light_grey = (150, 150, 150)
+    grid_color = (40, 60, 40)
 
     # the two moving squares
     sq1X = 1
@@ -152,19 +467,19 @@ def main():
 
         # draw everything:
         # background grid - vertical
-        pygame.draw.line(win, light_grey, (25, 25), (25, 325), 3)
-        pygame.draw.line(win, light_grey, (85, 25), (85, 325), 3)
-        pygame.draw.line(win, light_grey, (145, 25), (145, 325), 3)
-        pygame.draw.line(win, light_grey, (205, 25), (205, 325), 3)
-        pygame.draw.line(win, light_grey, (265, 25), (265, 325), 3)
-        pygame.draw.line(win, light_grey, (325, 25), (325, 325), 3)
+        pygame.draw.line(win, grid_color, (25, 25), (25, 325), 3)
+        pygame.draw.line(win, grid_color, (85, 25), (85, 325), 3)
+        pygame.draw.line(win, grid_color, (145, 25), (145, 325), 3)
+        pygame.draw.line(win, grid_color, (205, 25), (205, 325), 3)
+        pygame.draw.line(win, grid_color, (265, 25), (265, 325), 3)
+        pygame.draw.line(win, grid_color, (325, 25), (325, 325), 3)
         # background grid - horizontal
-        pygame.draw.line(win, light_grey, (25, 25), (325, 25), 3)
-        pygame.draw.line(win, light_grey, (25, 85), (325, 85), 3)
-        pygame.draw.line(win, light_grey, (25, 145), (325, 145), 3)
-        pygame.draw.line(win, light_grey, (25, 205), (325, 205), 3)
-        pygame.draw.line(win, light_grey, (25, 265), (325, 265), 3)
-        pygame.draw.line(win, light_grey, (25, 325), (325, 325), 3)
+        pygame.draw.line(win, grid_color, (25, 25), (325, 25), 3)
+        pygame.draw.line(win, grid_color, (25, 85), (325, 85), 3)
+        pygame.draw.line(win, grid_color, (25, 145), (325, 145), 3)
+        pygame.draw.line(win, grid_color, (25, 205), (325, 205), 3)
+        pygame.draw.line(win, grid_color, (25, 265), (325, 265), 3)
+        pygame.draw.line(win, grid_color, (25, 325), (325, 325), 3)
         # walls - vertical
         wall_ver_1 = pygame.image.load("wall_ver.jpg")
         wall_ver_1_rect = pygame.Rect(23, 23, 7, 126)
