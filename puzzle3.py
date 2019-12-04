@@ -65,10 +65,10 @@ def main():
 
     # the two moving squares
     sq1X = 1
-    sq1Y = 4
+    sq1Y = 2
     sq1 = puzzle3(red, sq1X, sq1Y, win)
     sq2X = 1
-    sq2Y = 5
+    sq2Y = 3
     sq2 = puzzle3(blue, sq2X, sq2Y, win)
 
     # the two "goals" of the game are represented by two grey squares
@@ -165,8 +165,53 @@ def main():
         pygame.draw.line(win, light_grey, (25, 205), (325, 205), 3)
         pygame.draw.line(win, light_grey, (25, 265), (325, 265), 3)
         pygame.draw.line(win, light_grey, (25, 325), (325, 325), 3)
-        # walls
-
+        # walls - vertical
+        wall_ver_1 = pygame.image.load("wall_ver.jpg")
+        wall_ver_1_rect = pygame.Rect(23, 23, 7, 126)
+        win.blit(wall_ver_1, wall_ver_1_rect, wall_ver_1_rect)
+        wall_ver_2 = pygame.image.load("wall_ver.jpg")
+        wall_ver_2_rect = pygame.Rect(23, 203, 7, 126)
+        win.blit(wall_ver_2, wall_ver_2_rect, wall_ver_2_rect)
+        wall_ver_3 = pygame.image.load("wall_ver.jpg")
+        wall_ver_3_rect = pygame.Rect(83, 23, 7, 126)
+        win.blit(wall_ver_3, wall_ver_3_rect, wall_ver_3_rect)
+        wall_ver_4 = pygame.image.load("wall_ver.jpg")
+        wall_ver_4_rect = pygame.Rect(83, 203, 7, 126)
+        win.blit(wall_ver_4, wall_ver_4_rect, wall_ver_4_rect)
+        wall_ver_5 = pygame.image.load("wall_ver.jpg")
+        wall_ver_5_rect = pygame.Rect(143, 23, 7, 66)
+        win.blit(wall_ver_5, wall_ver_5_rect, wall_ver_5_rect)
+        wall_ver_6 = pygame.image.load("wall_ver.jpg")
+        wall_ver_6_rect = pygame.Rect(203, 83, 7, 66)
+        win.blit(wall_ver_6, wall_ver_6_rect, wall_ver_6_rect)
+        wall_ver_7 = pygame.image.load("wall_ver.jpg")
+        wall_ver_7_rect = pygame.Rect(263, 263, 7, 66)
+        win.blit(wall_ver_7, wall_ver_7_rect, wall_ver_7_rect)
+        wall_ver_8 = pygame.image.load("wall_ver.jpg")
+        wall_ver_8_rect = pygame.Rect(323, 263, 7, 66)
+        win.blit(wall_ver_8, wall_ver_8_rect, wall_ver_8_rect)
+        # walls - horizontal
+        wall_hor_1 = pygame.image.load("wall_hor.jpg")
+        wall_hor_1_rect = pygame.Rect(203, 23, 126, 7)
+        win.blit(wall_hor_1, wall_hor_1_rect, wall_hor_1_rect)
+        wall_hor_2 = pygame.image.load("wall_hor.jpg")
+        wall_hor_2_rect = pygame.Rect(203, 83, 126, 7)
+        win.blit(wall_hor_2, wall_hor_2_rect, wall_hor_2_rect)
+        wall_hor_3 = pygame.image.load("wall_hor.jpg")
+        wall_hor_3_rect = pygame.Rect(83, 143, 126, 7)
+        win.blit(wall_hor_3, wall_hor_3_rect, wall_hor_3_rect)
+        wall_hor_4 = pygame.image.load("wall_hor.jpg")
+        wall_hor_4_rect = pygame.Rect(263, 143, 66, 7)
+        win.blit(wall_hor_4, wall_hor_4_rect, wall_hor_4_rect)
+        wall_hor_5 = pygame.image.load("wall_hor.jpg")
+        wall_hor_5_rect = pygame.Rect(83, 203, 246, 7)
+        win.blit(wall_hor_5, wall_hor_5_rect, wall_hor_5_rect)
+        wall_hor_6 = pygame.image.load("wall_hor.jpg")
+        wall_hor_6_rect = pygame.Rect(143, 263, 126, 7)
+        win.blit(wall_hor_6, wall_hor_6_rect, wall_hor_6_rect)
+        wall_hor_7 = pygame.image.load("wall_hor.jpg")
+        wall_hor_7_rect = pygame.Rect(143, 323, 66, 7)
+        win.blit(wall_hor_7, wall_hor_7_rect, wall_hor_7_rect)
         # draw other things
         goal1.draw()
         goal2.draw()
