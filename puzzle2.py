@@ -6,7 +6,7 @@ class puzzle2():
     """The 4*4 puzzle"""
 
     grid_len = 75
-    square_len = grid_len * 4 // 5
+    square_len = grid_len * 3 // 5
     half_len = square_len // 2
 
     def __init__(self, color, x, y, win):

@@ -6,7 +6,7 @@ class puzzle1():
     """The 3*3 puzzle"""
 
     grid_len = 100
-    square_len = grid_len * 4 // 5
+    square_len = grid_len * 3 // 5
     half_len = square_len // 2
 
     def __init__(self, color, x, y, win):
@@ -56,10 +56,11 @@ def main():
     pygame.display.set_caption("Amazing Puzzle - Hard Level 9")
 
     # colors:
-    grey = (40, 40, 40)
+    grey = (60, 60, 60)
     black = (0, 0, 0)
     red = (255, 0, 0)
     blue = (0, 0, 255)
+    light_grey = (150, 150, 150)
 
     # the two moving squares
     sq1X = 1

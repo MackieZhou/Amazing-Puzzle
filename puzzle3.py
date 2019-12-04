@@ -6,7 +6,7 @@ class puzzle3():
     """The 5*5 puzzle"""
 
     grid_len = 60
-    square_len = grid_len * 4 // 5
+    square_len = grid_len * 3 // 5
     half_len = square_len // 2
 
     def __init__(self, color, x, y, win):
@@ -26,21 +26,22 @@ class puzzle3():
         # convert GRID coordinates into GAME-WINDOW coordinates
         self.cor_x = 25 + (self.x-0.5)*puzzle3.grid_len - puzzle3.half_len
         self.cor_y = 25 + (self.y-0.5)*puzzle3.grid_len - puzzle3.half_len
+
         # create the rectangle and draw it
         self.sq = pygame.Rect(self.cor_x, self.cor_y, puzzle3.square_len, puzzle3.square_len)
         pygame.draw.rect(self.win, self.color, self.sq)
 
     def move_left(self):
-        pass
+        self.x -= 1
 
     def move_right(self):
-        pass
+        self.x += 1
 
     def move_up(self):
-        pass
+        self.y -= 1
 
     def move_down(self):
-        pass
+        self.y += 1
 
     def coords(self):
         """return the tuple's coordinates"""
@@ -56,10 +57,11 @@ def main():
     pygame.display.set_caption("Amazing Puzzle - Hard Level 9")
 
     # colors:
-    grey = (40, 40, 40)
+    grey = (60, 60, 60)
     black = (0, 0, 0)
     red = (255, 0, 0)
     blue = (0, 0, 255)
+    light_grey = (150, 150, 150)
 
     # the two moving squares
     sq1X = 1
@@ -148,9 +150,24 @@ def main():
 
         win.fill(black)
 
-        # the background of the game (grid, walls, numbers)
-
         # draw everything:
+        # background grid - vertical
+        pygame.draw.line(win, light_grey, (25, 25), (25, 325), 3)
+        pygame.draw.line(win, light_grey, (85, 25), (85, 325), 3)
+        pygame.draw.line(win, light_grey, (145, 25), (145, 325), 3)
+        pygame.draw.line(win, light_grey, (205, 25), (205, 325), 3)
+        pygame.draw.line(win, light_grey, (265, 25), (265, 325), 3)
+        pygame.draw.line(win, light_grey, (325, 25), (325, 325), 3)
+        # background grid - horizontal
+        pygame.draw.line(win, light_grey, (25, 25), (325, 25), 3)
+        pygame.draw.line(win, light_grey, (25, 85), (325, 85), 3)
+        pygame.draw.line(win, light_grey, (25, 145), (325, 145), 3)
+        pygame.draw.line(win, light_grey, (25, 205), (325, 205), 3)
+        pygame.draw.line(win, light_grey, (25, 265), (325, 265), 3)
+        pygame.draw.line(win, light_grey, (25, 325), (325, 325), 3)
+        # walls
+
+        # draw other things
         goal1.draw()
         goal2.draw()
         sq1.draw()
