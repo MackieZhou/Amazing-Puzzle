@@ -23,9 +23,9 @@ class puzzle2():
     def draw(self):
         """create the pygame rectangle and draw the rectangle"""
         # (cor_x, cor_y) is the top-left corner of the square
-        # coords are in the GAME-WINDOW dimension
-        self.cor_x = -25 + self.x * puzzle2.grid_len - puzzle2.half_len
-        self.cor_y = -25 + self.y * puzzle2.grid_len - puzzle2.half_len
+        # convert GRID coordinates into GAME-WINDOW coordinates
+        self.cor_x = 25 + (self.x-0.5)*puzzle2.grid_len - puzzle2.half_len
+        self.cor_y = 25 + (self.y-0.5)*puzzle2.grid_len - puzzle2.half_len
 
         self.sq = pygame.Rect(self.cor_x, self.cor_y, puzzle2.square_len, puzzle2.square_len)
         pygame.draw.rect(self.win, self.color, self.sq)
