@@ -172,5 +172,15 @@ def main():
     pygame.quit()
     quit()
 
+    #testing
+    print ("test")
+    
+    except Exception as e:
+        raise
+    else:
+        pass
+    finally:
+        pass
+
 
 main()
