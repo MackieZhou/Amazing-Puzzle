@@ -6,9 +6,9 @@ pygame.init()
 class puzzle3():
     """The 5*5 puzzle"""
 
-    grid_len = 60
+    grid_len = 120
     square_len = grid_len * 3 // 5
-    half_len = square_len // 2
+    half_len = square_len // 2  # half the length of a colored square
 
     def __init__(self, color, x, y, win):
         """construct a square object;color is given as tuple (red, green, blue)
@@ -25,8 +25,9 @@ class puzzle3():
         """create the pygame rectangle and draw the rectangle"""
         # (cor_x, cor_y) is the top-left corner of the square
         # convert GRID coordinates into GAME-WINDOW coordinates
-        self.cor_x = 25 + (self.x-0.5)*puzzle3.grid_len - puzzle3.half_len
-        self.cor_y = 25 + (self.y-0.5)*puzzle3.grid_len - puzzle3.half_len
+        # the margin is 50
+        self.cor_x = 50 + (self.x-0.5)*puzzle3.grid_len - puzzle3.half_len
+        self.cor_y = 50 + (self.y-0.5)*puzzle3.grid_len - puzzle3.half_len
 
         # create the rectangle and draw it
         self.sq = pygame.Rect(self.cor_x, self.cor_y, puzzle3.square_len, puzzle3.square_len)
@@ -366,10 +367,10 @@ class puzzle3():
 
 def main():
 
-    # the game window has a dimension of 350*350
-    # the grid takes up 300*300
+    # the game window has a dimension of 700*700
+    # the grid takes up 600*600
     # the margin on each side is 50
-    win = pygame.display.set_mode(size=(350, 350))
+    win = pygame.display.set_mode(size=(700, 700))
     pygame.display.set_caption("Amazing Puzzle - Level 999")
 
     # colors:
@@ -437,70 +438,57 @@ def main():
 
         # draw everything:
         # background grid - vertical
-        pygame.draw.line(win, grid_color, (25, 25), (25, 325), 3)
-        pygame.draw.line(win, grid_color, (85, 25), (85, 325), 3)
-        pygame.draw.line(win, grid_color, (145, 25), (145, 325), 3)
-        pygame.draw.line(win, grid_color, (205, 25), (205, 325), 3)
-        pygame.draw.line(win, grid_color, (265, 25), (265, 325), 3)
-        pygame.draw.line(win, grid_color, (325, 25), (325, 325), 3)
+        pygame.draw.line(win, grid_color, (50, 50), (50, 650), 4)
+        pygame.draw.line(win, grid_color, (170, 50), (170, 650), 4)
+        pygame.draw.line(win, grid_color, (290, 50), (290, 650), 4)
+        pygame.draw.line(win, grid_color, (410, 50), (410, 650), 4)
+        pygame.draw.line(win, grid_color, (530, 50), (530, 650), 4)
+        pygame.draw.line(win, grid_color, (650, 50), (650, 650), 4)
         # background grid - horizontal
-        pygame.draw.line(win, grid_color, (25, 25), (325, 25), 3)
-        pygame.draw.line(win, grid_color, (25, 85), (325, 85), 3)
-        pygame.draw.line(win, grid_color, (25, 145), (325, 145), 3)
-        pygame.draw.line(win, grid_color, (25, 205), (325, 205), 3)
-        pygame.draw.line(win, grid_color, (25, 265), (325, 265), 3)
-        pygame.draw.line(win, grid_color, (25, 325), (325, 325), 3)
+        pygame.draw.line(win, grid_color, (50, 50), (650, 50), 4)
+        pygame.draw.line(win, grid_color, (50, 170), (650, 170), 4)
+        pygame.draw.line(win, grid_color, (50, 290), (650, 290), 4)
+        pygame.draw.line(win, grid_color, (50, 410), (650, 410), 4)
+        pygame.draw.line(win, grid_color, (50, 530), (650, 530), 4)
+        pygame.draw.line(win, grid_color, (50, 650), (650, 650), 4)
 
         # walls - vertical
-        wall_ver_1 = pygame.image.load("wall_ver.jpg")
-        wall_ver_1_rect = pygame.Rect(23, 23, 7, 126)
+        wall_ver_1 = pygame.image.load("bg2.jpg")
+        wall_ver_1_rect = pygame.Rect(46, 46, 8, 248)
         win.blit(wall_ver_1, wall_ver_1_rect, wall_ver_1_rect)
-        wall_ver_2 = pygame.image.load("wall_ver.jpg")
-        wall_ver_2_rect = pygame.Rect(23, 203, 7, 126)
-        win.blit(wall_ver_2, wall_ver_2_rect, wall_ver_2_rect)
-        wall_ver_3 = pygame.image.load("wall_ver.jpg")
-        wall_ver_3_rect = pygame.Rect(83, 23, 7, 126)
-        win.blit(wall_ver_3, wall_ver_3_rect, wall_ver_3_rect)
-        wall_ver_4 = pygame.image.load("wall_ver.jpg")
-        wall_ver_4_rect = pygame.Rect(83, 203, 7, 126)
-        win.blit(wall_ver_4, wall_ver_4_rect, wall_ver_4_rect)
-        wall_ver_5 = pygame.image.load("wall_ver.jpg")
-        wall_ver_5_rect = pygame.Rect(143, 23, 7, 66)
-        win.blit(wall_ver_5, wall_ver_5_rect, wall_ver_5_rect)
-        wall_ver_6 = pygame.image.load("wall_ver.jpg")
-        wall_ver_6_rect = pygame.Rect(203, 83, 7, 66)
-        win.blit(wall_ver_6, wall_ver_6_rect, wall_ver_6_rect)
-        wall_ver_7 = pygame.image.load("wall_ver.jpg")
-        wall_ver_7_rect = pygame.Rect(263, 263, 7, 66)
-        win.blit(wall_ver_7, wall_ver_7_rect, wall_ver_7_rect)
-        wall_ver_8 = pygame.image.load("wall_ver.jpg")
-        wall_ver_8_rect = pygame.Rect(323, 263, 7, 66)
-        win.blit(wall_ver_8, wall_ver_8_rect, wall_ver_8_rect)
-        # walls - horizontal
-        wall_hor_1 = pygame.image.load("wall_hor.jpg")
-        wall_hor_1_rect = pygame.Rect(203, 23, 126, 7)
+        wall_ver_2_rect = pygame.Rect(46, 406, 8, 248)
+        win.blit(wall_ver_1, wall_ver_2_rect, wall_ver_2_rect)
+        wall_ver_3_rect = pygame.Rect(166, 46, 8, 248)
+        win.blit(wall_ver_1, wall_ver_3_rect, wall_ver_3_rect)
+        wall_ver_4_rect = pygame.Rect(166, 406, 8, 248)
+        win.blit(wall_ver_1, wall_ver_4_rect, wall_ver_4_rect)
+        wall_ver_5_rect = pygame.Rect(286, 46, 8, 128)
+        win.blit(wall_ver_1, wall_ver_5_rect, wall_ver_5_rect)
+        wall_ver_6_rect = pygame.Rect(406, 166, 8, 128)
+        win.blit(wall_ver_1, wall_ver_6_rect, wall_ver_6_rect)
+        wall_ver_7_rect = pygame.Rect(526, 526, 8, 128)
+        win.blit(wall_ver_1, wall_ver_7_rect, wall_ver_7_rect)
+        wall_ver_8_rect = pygame.Rect(646, 526, 8, 128)
+        win.blit(wall_ver_1, wall_ver_8_rect, wall_ver_8_rect)
+        # # walls - horizontal
+        wall_hor_1 = pygame.image.load("bg2.jpg")
+        wall_hor_1_rect = pygame.Rect(406, 46, 248, 8)
         win.blit(wall_hor_1, wall_hor_1_rect, wall_hor_1_rect)
-        wall_hor_2 = pygame.image.load("wall_hor.jpg")
-        wall_hor_2_rect = pygame.Rect(203, 83, 126, 7)
-        win.blit(wall_hor_2, wall_hor_2_rect, wall_hor_2_rect)
-        wall_hor_3 = pygame.image.load("wall_hor.jpg")
-        wall_hor_3_rect = pygame.Rect(83, 143, 126, 7)
-        win.blit(wall_hor_3, wall_hor_3_rect, wall_hor_3_rect)
-        wall_hor_4 = pygame.image.load("wall_hor.jpg")
-        wall_hor_4_rect = pygame.Rect(263, 143, 66, 7)
-        win.blit(wall_hor_4, wall_hor_4_rect, wall_hor_4_rect)
-        wall_hor_5 = pygame.image.load("wall_hor.jpg")
-        wall_hor_5_rect = pygame.Rect(83, 203, 246, 7)
-        win.blit(wall_hor_5, wall_hor_5_rect, wall_hor_5_rect)
-        wall_hor_6 = pygame.image.load("wall_hor.jpg")
-        wall_hor_6_rect = pygame.Rect(143, 263, 126, 7)
-        win.blit(wall_hor_6, wall_hor_6_rect, wall_hor_6_rect)
-        wall_hor_7 = pygame.image.load("wall_hor.jpg")
-        wall_hor_7_rect = pygame.Rect(143, 323, 66, 7)
-        win.blit(wall_hor_7, wall_hor_7_rect, wall_hor_7_rect)
+        wall_hor_2_rect = pygame.Rect(406, 166, 248, 8)
+        win.blit(wall_hor_1, wall_hor_2_rect, wall_hor_2_rect)
+        wall_hor_3_rect = pygame.Rect(166, 286, 248, 8)
+        win.blit(wall_hor_1, wall_hor_3_rect, wall_hor_3_rect)
+        wall_hor_4_rect = pygame.Rect(526, 286, 128, 8)
+        win.blit(wall_hor_1, wall_hor_4_rect, wall_hor_4_rect)
+        wall_hor_5_rect = pygame.Rect(166, 406, 488, 8)
+        win.blit(wall_hor_1, wall_hor_5_rect, wall_hor_5_rect)
+        wall_hor_6_rect = pygame.Rect(286, 526, 248, 8)
+        win.blit(wall_hor_1, wall_hor_6_rect, wall_hor_6_rect)
+        wall_hor_7_rect = pygame.Rect(286, 646, 128, 8)
+        win.blit(wall_hor_1, wall_hor_7_rect, wall_hor_7_rect)
 
         # draw the numbers
-        size = 20
+        size = 40
         game = 3
         n1_1 = gameNumber("1", size, white, (1, 3), "left", game)
         n1_1.draw(win)

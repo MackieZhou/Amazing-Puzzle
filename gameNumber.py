@@ -25,33 +25,33 @@ class gameNumber():
         # to check the puzzle you are creating numbers for
         # create numbers for puzzle 1
         if puzzle == 1:
-            grid_len = 100
+            grid_len = 200
             pass
 
         # create numbers for puzzle 2
         elif puzzle == 2:
-            grid_len = 75
+            grid_len = 150
             pass
 
         # create numbers for puzzle 3
         elif puzzle == 3:
-            grid_len = 60
+            grid_len = 120
             # if the number is at the left side of the grid
             if direction == "left":
-                x2 = 8
-                y2 = 25 + (y-0.5)*grid_len - 10
+                x2 = 16
+                y2 = 50 + (y-0.5)*grid_len - 20
             # if the number is at the right side of the grid
             elif direction == "right":
-                x2 = 332
-                y2 = 25 + (y-0.5)*grid_len - 10
+                x2 = 664
+                y2 = 50 + (y-0.5)*grid_len - 20
             # if the number is above the grid
             elif direction == "up":
-                x2 = 25 + (x-0.5)*grid_len - 1
-                y2 = 3
+                x2 = 50 + (x-0.5)*grid_len - 4
+                y2 = 6
             # if the number is at the bottom of the grid
             elif direction == "down":
-                x2 = 25 + (x-0.5)*grid_len - 10
-                y2 = 326
+                x2 = 50 + (x-0.5)*grid_len - 4
+                y2 = 652
 
         self.coords = (x2, y2)
         fon = pygame.font.SysFont(gameNumber.def_font, self.size, True, False)
