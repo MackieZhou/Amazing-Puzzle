@@ -409,61 +409,28 @@ def main():
                 if event.key == pygame.K_LEFT:
                     sq1.move_left()
                     sq2.move_left()
-
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
-
                 # right button hit
                 elif event.key == pygame.K_RIGHT:
                     sq1.move_right()
                     sq2.move_right()
-
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
-
                 # up button hit
                 elif event.key == pygame.K_UP:
                     sq1.move_up()
                     sq2.move_up()
-
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
-
                 # down button hit
                 elif event.key == pygame.K_DOWN:
                     sq1.move_down()
                     sq2.move_down()
 
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
+        # check if the two squares ovelap in each loop
+        if sq1.coords() == sq2.coords():
+            run = False
+            crash = True
+        # check if the user wins in each loop
+        elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
+             (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
+            run = False
+            puzzlewin = True
 
         # refill the window to black in each loop
         win.fill(black)
@@ -483,6 +450,7 @@ def main():
         pygame.draw.line(win, grid_color, (25, 205), (325, 205), 3)
         pygame.draw.line(win, grid_color, (25, 265), (325, 265), 3)
         pygame.draw.line(win, grid_color, (25, 325), (325, 325), 3)
+
         # walls - vertical
         wall_ver_1 = pygame.image.load("wall_ver.jpg")
         wall_ver_1_rect = pygame.Rect(23, 23, 7, 126)
