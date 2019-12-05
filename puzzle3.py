@@ -1,3 +1,4 @@
+from gameNumber import gameNumber
 import pygame
 pygame.init()
 
@@ -372,8 +373,9 @@ def main():
     pygame.display.set_caption("Amazing Puzzle - Level 999")
 
     # colors:
-    grey = (60, 60, 60)
-    black = (0, 0, 0)
+    grey = (60, 60, 60)  # color of the two "goals"
+    white = (255, 255, 255)  # color of the numbers
+    black = (0, 0, 0)  # background color
     red = (255, 0, 0)
     blue = (0, 0, 255)
     grid_color = (40, 60, 40)
@@ -386,7 +388,7 @@ def main():
     sq2Y = 3
     sq2 = puzzle3(blue, sq2X, sq2Y, win)
 
-    # the two "goals" of the game are represented by two grey squares
+    # the two "goals" of the game
     goal1 = puzzle3(grey, 1, 1, win)
     goal2 = puzzle3(grey, 3, 1, win)
 
@@ -395,14 +397,15 @@ def main():
     crash = False  # crash when the two squares ovelap
     puzzlewin = False  # win when the grey squares are covered
     while run:
-        pygame.time.delay(100)  # 1000 = 1 second
 
         for event in pygame.event.get():
+            # Quit condition
             if event.type == pygame.QUIT:
                 run = False
 
             # check if the user hits the arrow keys
             elif event.type == pygame.KEYDOWN:
+                # left button hit
                 if event.key == pygame.K_LEFT:
                     sq1.move_left()
                     sq2.move_left()
@@ -411,13 +414,13 @@ def main():
                     if sq1.coords() == sq2.coords():
                         run = False
                         crash = True
-
                     # check is the user wins
                     elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
                          (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
                         run = False
                         puzzlewin = True
 
+                # right button hit
                 elif event.key == pygame.K_RIGHT:
                     sq1.move_right()
                     sq2.move_right()
@@ -426,13 +429,13 @@ def main():
                     if sq1.coords() == sq2.coords():
                         run = False
                         crash = True
-
                     # check is the user wins
                     elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
                          (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
                         run = False
                         puzzlewin = True
 
+                # up button hit
                 elif event.key == pygame.K_UP:
                     sq1.move_up()
                     sq2.move_up()
@@ -441,13 +444,13 @@ def main():
                     if sq1.coords() == sq2.coords():
                         run = False
                         crash = True
-
                     # check is the user wins
                     elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
                          (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
                         run = False
                         puzzlewin = True
 
+                # down button hit
                 elif event.key == pygame.K_DOWN:
                     sq1.move_down()
                     sq2.move_down()
@@ -456,13 +459,13 @@ def main():
                     if sq1.coords() == sq2.coords():
                         run = False
                         crash = True
-
                     # check is the user wins
                     elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
                          (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
                         run = False
                         puzzlewin = True
 
+        # refill the window to black in each loop
         win.fill(black)
 
         # draw everything:
@@ -527,12 +530,42 @@ def main():
         wall_hor_7 = pygame.image.load("wall_hor.jpg")
         wall_hor_7_rect = pygame.Rect(143, 323, 66, 7)
         win.blit(wall_hor_7, wall_hor_7_rect, wall_hor_7_rect)
+
+        # draw the numbers
+        size = 20
+        game = 3
+        n1_1 = gameNumber("1", size, white, (1, 3), "left", game)
+        n1_1.draw(win)
+        n1_2 = gameNumber("1", size, white, (3, 1), "up", game)
+        n1_2.draw(win)
+        n2_1 = gameNumber("2", size, white, (1, 5), "down", game)
+        n2_1.draw(win)
+        n2_2 = gameNumber("2", size, white, (4, 5), "down", game)
+        n2_2.draw(win)
+        n3_1 = gameNumber("3", size, white, (2, 5), "down", game)
+        n3_1.draw(win)
+        n3_2 = gameNumber("3", size, white, (5, 4), "right", game)
+        n3_2.draw(win)
+        n4_1 = gameNumber("4", size, white, (2, 1), "up", game)
+        n4_1.draw(win)
+        n4_2 = gameNumber("4", size, white, (5, 2), "right", game)
+        n4_2.draw(win)
+        n5_1 = gameNumber("5", size, white, (1, 1), "up", game)
+        n5_1.draw(win)
+        n5_2 = gameNumber("5", size, white, (5, 5), "down", game)
+        n5_2.draw(win)
+        n6_1 = gameNumber("6", size, white, (5, 1), "right", game)
+        n6_1.draw(win)
+        n6_2 = gameNumber("6", size, white, (5, 3), "right", game)
+        n6_2.draw(win)
+
         # draw other things
         goal1.draw()
         goal2.draw()
         sq1.draw()
         sq2.draw()
-        # update the display window
+
+        # update the display window in each loop
         pygame.display.update()
 
     # check if the two squares are on top of each other
