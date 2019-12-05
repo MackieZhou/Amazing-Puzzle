@@ -28,12 +28,12 @@ class gameNumber():
             grid_len = 100
             pass
 
-        # create numbers for puzzle 1
+        # create numbers for puzzle 2
         elif puzzle == 2:
             grid_len = 75
             pass
 
-        # create numbers for puzzle 1
+        # create numbers for puzzle 3
         elif puzzle == 3:
             grid_len = 60
             # if the number is at the left side of the grid
