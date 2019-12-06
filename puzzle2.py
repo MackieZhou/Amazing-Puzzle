@@ -7,7 +7,7 @@ class puzzle2():
     """The 5*5 puzzle"""
 
     grid_len = 150
-    square_len = grid_len *3//5
+    square_len = grid_len * 3//5
     half_len = square_len // 2
 
     def __init__(self, color, x, y, win):
@@ -88,7 +88,6 @@ class puzzle2():
             self.x = 3
             self.y = 4
 
-
     def move_right(self):
         # x = 1
         if self.x == 1 and self.y == 1:
@@ -145,7 +144,6 @@ class puzzle2():
         elif self.x == 4 and self.y == 4:
             self.x = 1
             self.y = 4
-
 
     def move_up(self):
         # x = 1
@@ -204,7 +202,6 @@ class puzzle2():
             self.x = 4
             self.y = 4
 
-
     def move_down(self):
         # x = 1
         if self.x == 1 and self.y == 1:
@@ -262,7 +259,6 @@ class puzzle2():
             self.x = 4
             self.y = 4
 
-
     def coords(self):
         """return the tuple's coordinates"""
         return (self.x, self.y)
@@ -274,7 +270,7 @@ def main():
     # the grid takes up 300*300
     # the margin on each side is 50
     win = pygame.display.set_mode(size=(700, 700))
-    pygame.display.set_caption("Amazing Puzzle - Level 999")
+    pygame.display.set_caption("Amazing Puzzle - Level 99")
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -355,37 +351,37 @@ def main():
         pygame.draw.line(win, grid_color, (50, 650), (650, 650), 6)
 
         # walls - vertical
-        bg_1 = pygame.image.load("bg.jpg")
-        bg_1_rect = pygame.Rect(46,200, 14, 300)
+        bg_1 = pygame.image.load("bg2.jpg")
+        bg_1_rect = pygame.Rect(46, 200, 14, 300)
         win.blit(bg_1, bg_1_rect, bg_1_rect)
-        bg_2 = pygame.image.load("bg.jpg")
+        bg_2 = pygame.image.load("bg2.jpg")
         bg_2_rect = pygame.Rect(196, 50, 14, 150)
         win.blit(bg_2, bg_2_rect, bg_2_rect)
-        bg_3 = pygame.image.load("bg.jpg")
+        bg_3 = pygame.image.load("bg2.jpg")
         bg_3_rect = pygame.Rect(346, 50, 14, 300)
         win.blit(bg_3, bg_3_rect, bg_3_rect)
-        bg_4 = pygame.image.load("bg.jpg")
-        bg_4_rect = pygame.Rect(210, 346,150, 14)
+        bg_4 = pygame.image.load("bg2.jpg")
+        bg_4_rect = pygame.Rect(210, 346, 150, 14)
         win.blit(bg_4, bg_4_rect, bg_4_rect)
-        bg_5 = pygame.image.load("bg.jpg")
+        bg_5 = pygame.image.load("bg2.jpg")
         bg_5_rect = pygame.Rect(196, 346, 14, 300)
         win.blit(bg_5, bg_5_rect, bg_5_rect)
-        bg_6 = pygame.image.load("bg.jpg")
+        bg_6 = pygame.image.load("bg2.jpg")
         bg_6_rect = pygame.Rect(496, 50, 14, 311)
         win.blit(bg_6, bg_6_rect, bg_6_rect)
-        bg_7 = pygame.image.load("bg.jpg")
+        bg_7 = pygame.image.load("bg2.jpg")
         bg_7_rect = pygame.Rect(500, 346, 150, 14)
         win.blit(bg_7, bg_7_rect, bg_7_rect)
-        bg_8 = pygame.image.load("bg.jpg")
+        bg_8 = pygame.image.load("bg2.jpg")
         bg_8_rect = pygame.Rect(350, 496, 300, 14)
         win.blit(bg_8, bg_8_rect, bg_8_rect)
-        bg_9 = pygame.image.load("bg.jpg")
+        bg_9 = pygame.image.load("bg2.jpg")
         bg_9_rect = pygame.Rect(346, 496, 14, 150)
         win.blit(bg_9, bg_9_rect, bg_9_rect)
-        bg_10 = pygame.image.load("bg.jpg")
+        bg_10 = pygame.image.load("bg2.jpg")
         bg_10_rect = pygame.Rect(646, 50, 14, 150)
-        win.blit(bg_10, bg_10_rect,bg_10_rect)
-        bg_11 = pygame.image.load("bg.jpg")
+        win.blit(bg_10, bg_10_rect, bg_10_rect)
+        bg_11 = pygame.image.load("bg2.jpg")
         bg_11_rect = pygame.Rect(500, 646, 150, 14)
         win.blit(bg_11, bg_11_rect, bg_11_rect)
 
