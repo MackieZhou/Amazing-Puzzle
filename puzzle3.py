@@ -1,4 +1,5 @@
 from gameNumber import gameNumber
+from gameText import gameText
 import pygame
 pygame.init()
 
@@ -341,7 +342,7 @@ class puzzle3():
             self.x = 4
             self.y = 4
         elif self.x == 4 and self.y == 5:
-            self.x = 4
+            self.x = 1
             self.y = 5
         # x = 5
         elif self.x == 5 and self.y == 1:
@@ -398,6 +399,11 @@ def main():
     crash = False  # crash when the two squares ovelap
     puzzlewin = False  # win when the grey squares are covered
     while run:
+
+        # get the original position of the two squares in each loop
+        # in case the two squares crash -- need to back to the last move
+        sq1_x, sq1_y = sq1.coords()[0], sq1.coords()[1]
+        sq2_x, sq2_y = sq2.coords()[0], sq2.coords()[1]
 
         for event in pygame.event.get():
             # Quit condition
@@ -471,21 +477,20 @@ def main():
         wall_ver_8_rect = pygame.Rect(646, 526, 8, 128)
         win.blit(wall_ver_1, wall_ver_8_rect, wall_ver_8_rect)
         # # walls - horizontal
-        wall_hor_1 = pygame.image.load("bg2.jpg")
-        wall_hor_1_rect = pygame.Rect(406, 46, 248, 8)
-        win.blit(wall_hor_1, wall_hor_1_rect, wall_hor_1_rect)
+        wall_ver_1_rect = pygame.Rect(406, 46, 248, 8)
+        win.blit(wall_ver_1, wall_ver_1_rect, wall_ver_1_rect)
         wall_hor_2_rect = pygame.Rect(406, 166, 248, 8)
-        win.blit(wall_hor_1, wall_hor_2_rect, wall_hor_2_rect)
+        win.blit(wall_ver_1, wall_hor_2_rect, wall_hor_2_rect)
         wall_hor_3_rect = pygame.Rect(166, 286, 248, 8)
-        win.blit(wall_hor_1, wall_hor_3_rect, wall_hor_3_rect)
+        win.blit(wall_ver_1, wall_hor_3_rect, wall_hor_3_rect)
         wall_hor_4_rect = pygame.Rect(526, 286, 128, 8)
-        win.blit(wall_hor_1, wall_hor_4_rect, wall_hor_4_rect)
+        win.blit(wall_ver_1, wall_hor_4_rect, wall_hor_4_rect)
         wall_hor_5_rect = pygame.Rect(166, 406, 488, 8)
-        win.blit(wall_hor_1, wall_hor_5_rect, wall_hor_5_rect)
+        win.blit(wall_ver_1, wall_hor_5_rect, wall_hor_5_rect)
         wall_hor_6_rect = pygame.Rect(286, 526, 248, 8)
-        win.blit(wall_hor_1, wall_hor_6_rect, wall_hor_6_rect)
+        win.blit(wall_ver_1, wall_hor_6_rect, wall_hor_6_rect)
         wall_hor_7_rect = pygame.Rect(286, 646, 128, 8)
-        win.blit(wall_hor_1, wall_hor_7_rect, wall_hor_7_rect)
+        win.blit(wall_ver_1, wall_hor_7_rect, wall_hor_7_rect)
 
         # draw the numbers
         size = 40
@@ -524,15 +529,35 @@ def main():
         # update the display window in each loop
         pygame.display.update()
 
-    # check if the two squares are on top of each other
-    if crash:
-        # display the "you lose you stupid" window
-        pass
+        # check if the two squares are on top of each other
+        if crash:
+            # display the "you lose you stupid" window
+            youlose = gameText("Oops... The two squares cannot overlap",
+                               25, red, (150, 300), (100, 295, 500, 40), grey)
+            back = gameText("back to the last move",
+                            25, red, (250, 350), (200, 345, 350, 40), grey)
+            youlose.draw(win)
+            back.draw(win)
+            pygame.display.update()
+            pygame.time.wait(1500)  # 1000 = 1 second
 
-    # check is the user wins
-    elif puzzlewin:
+            # move the squares back to their last position
+            sq1.x, sq1.y = sq1_x, sq1_y
+            sq2.x, sq2.y = sq2_x, sq2_y
+            sq1.draw()
+            sq2.draw()
+            pygame.display.update()
+
+            crash = False
+            run = True
+
+    # check if the user wins
+    if puzzlewin:
         # display the "you win" window
-        pass
+        youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
+        youwin.draw(win)
+        pygame.display.update()
+        pygame.time.wait(1500)  # 1000 = 1 second
 
     pygame.quit()
     quit()
