@@ -39,10 +39,10 @@ class gameNumber():
                 y2 = 50 + (y-0.5)*grid_len
             elif direction == 'up':
                 x2 = 50 + (x-0.5)*grid_len
-                y2 = 25
+                y2 = 10
             elif direction == 'down':
                 x2 = 50 + (x-0.5)*grid_len
-                y2 = 665
+                y2 = 655
 
         # create numbers for puzzle 3
         elif puzzle == 3:
