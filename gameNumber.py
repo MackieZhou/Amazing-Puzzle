@@ -26,7 +26,18 @@ class gameNumber():
         # create numbers for puzzle 1
         if puzzle == 1:
             grid_len = 200
-            pass
+            if direction == 'left':
+                x2 = 25
+                y2 = 50 + (y-0.5)*grid_len
+            elif direction == 'right':
+                x2 = 665
+                y2 = 50 + (y-0.5)*grid_len
+            elif direction == 'up':
+                x2 = 50 + (x-0.5)*grid_len
+                y2 = 10
+            elif direction == 'down':
+                x2 = 50 + (x-0.5)*grid_len
+                y2 = 655
 
         # create numbers for puzzle 2
         elif puzzle == 2:

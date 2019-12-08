@@ -1,3 +1,5 @@
+from gameNumber import gameNumber
+from gameText import gameText
 import pygame
 pygame.init()
 
@@ -5,7 +7,7 @@ pygame.init()
 class puzzle1():
     """The 3*3 puzzle"""
 
-    grid_len = 100
+    grid_len = 200
     square_len = grid_len * 3 // 5
     half_len = square_len // 2
 
@@ -24,23 +26,139 @@ class puzzle1():
         """create the pygame rectangle and draw the rectangle"""
         # (cor_x, cor_y) is the top-left corner of the square
         # convert GRID coordinates into GAME-WINDOW coordinates
-        self.cor_x = 25 + (self.x-0.5)*puzzle1.grid_len - puzzle1.half_len
-        self.cor_y = 25 + (self.y-0.5)*puzzle1.grid_len - puzzle1.half_len
+        self.cor_x = 50 + (self.x-0.5)*puzzle1.grid_len - puzzle1.half_len
+        self.cor_y = 50 + (self.y-0.5)*puzzle1.grid_len - puzzle1.half_len
 
         self.sq = pygame.Rect(self.cor_x, self.cor_y, puzzle1.square_len, puzzle1.square_len)
         pygame.draw.rect(self.win, self.color, self.sq)
 
     def move_left(self):
-        pass
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 3
+            self.y = 1
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 3:
+            self.x = 3
+            self.y = 3
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 2
+            self.y = 1
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 2
+        elif self.x == 2 and self.y == 3:
+            self.x = 2
+            self.y = 3
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 3
+            self.y = 1
+        elif self.x == 3 and self.y == 2:
+            self.x = 3
+            self.y = 2
+        elif self.x == 3 and self.y == 3:
+            self.x = 2
+            self.y = 3
 
     def move_right(self):
-        pass
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 1
+            self.y = 1
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 3:
+            self.x = 1
+            self.y = 3
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 2
+            self.y = 1
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 2
+        elif self.x == 2 and self.y == 3:
+            self.x = 3
+            self.y = 3
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 3
+            self.y = 1
+        elif self.x == 3 and self.y == 2:
+            self.x = 2
+            self.y = 1
+        elif self.x == 3 and self.y == 3:
+            self.x = 1
+            self.y = 3
 
     def move_up(self):
-        pass
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 1
+            self.y = 3
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 1
+        elif self.x == 1 and self.y == 3:
+            self.x = 1
+            self.y = 2
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 3
+            self.y = 2
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 1
+        elif self.x == 2 and self.y == 3:
+            self.x = 2
+            self.y = 2
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 1
+            self.y = 1
+        elif self.x == 3 and self.y == 2:
+            self.x = 3
+            self.y = 1
+        elif self.x == 3 and self.y == 3:
+            self.x = 3
+            self.y = 3
 
     def move_down(self):
-        pass
+        # x = 1
+        if self.x == 1 and self.y == 1:
+            self.x = 1
+            self.y = 2
+        elif self.x == 1 and self.y == 2:
+            self.x = 1
+            self.y = 3
+        elif self.x == 1 and self.y == 3:
+            self.x = 1
+            self.y = 1
+        # x = 2
+        elif self.x == 2 and self.y == 1:
+            self.x = 2
+            self.y = 2
+        elif self.x == 2 and self.y == 2:
+            self.x = 2
+            self.y = 3
+        elif self.x == 2 and self.y == 3:
+            self.x = 2
+            self.y = 3
+        # x = 3
+        elif self.x == 3 and self.y == 1:
+            self.x = 3
+            self.y = 2
+        elif self.x == 3 and self.y == 2:
+            self.x = 3
+            self.y = 2
+        elif self.x == 3 and self.y == 3:
+            self.x = 3
+            self.y = 3
 
     def coords(self):
         """return the tuple's coordinates"""
@@ -49,18 +167,19 @@ class puzzle1():
 
 def main():
 
-    # the game window has a dimension of 350*350
+    # the game window has a dimension of 700*700
     # the grid takes up 300*300
     # the margin on each side is 50
-    win = pygame.display.set_mode(size=(350, 350))
+    win = pygame.display.set_mode(size=(700, 700))
     pygame.display.set_caption("Amazing Puzzle - Hard Level 9")
 
     # colors:
     grey = (60, 60, 60)
+    white = (255, 255, 255)
     black = (0, 0, 0)
     red = (255, 0, 0)
     blue = (0, 0, 255)
-    light_grey = (150, 150, 150)
+    grid_color = (40, 60, 40)
 
     # the two moving squares
     sq1X = 1
@@ -79,105 +198,136 @@ def main():
     crash = False  # crash when the two squares ovelap
     puzzlewin = False  # win when the grey squares are covered
     while run:
-        pygame.time.delay(100)  # 1000 = 1 second
+
+        # get the original position of the two squares in each loop
+        # in case the two squares crash -- need to back to the last move
+        sq1_x, sq1_y = sq1.coords()[0], sq1.coords()[1]
+        sq2_x, sq2_y = sq2.coords()[0], sq2.coords()[1]
 
         for event in pygame.event.get():
+            # Quit condition
             if event.type == pygame.QUIT:
                 run = False
 
             # check if the user hits the arrow keys
             elif event.type == pygame.KEYDOWN:
+                # left button hit
                 if event.key == pygame.K_LEFT:
                     sq1.move_left()
                     sq2.move_left()
-
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
-
+                # right button hit
                 elif event.key == pygame.K_RIGHT:
                     sq1.move_right()
                     sq2.move_right()
-
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
-
+                # up button hit
                 elif event.key == pygame.K_UP:
                     sq1.move_up()
                     sq2.move_up()
-
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
-
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
-
+                # down button hit
                 elif event.key == pygame.K_DOWN:
                     sq1.move_down()
                     sq2.move_down()
 
-                    # check if the two squares ovelap
-                    if sq1.coords() == sq2.coords():
-                        run = False
-                        crash = True
+        # check if the two squares ovelap
+        if sq1.coords() == sq2.coords():
+            run = False
+            crash = True
 
-                    # check is the user wins
-                    elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
-                         (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
-                        run = False
-                        puzzlewin = True
+        # check is the user wins
+        elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
+             (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
+            run = False
+            puzzlewin = True
 
+        # refill the window to black in each loop
         win.fill(black)
-
-        # the background of the game (grid, walls, numbers)
-
+                
         # draw everything:
+        # background grid - vertical
+        pygame.draw.line(win, grid_color, (50, 50), (50, 650), 4)
+        pygame.draw.line(win, grid_color, (250, 50), (250, 650), 4)
+        pygame.draw.line(win, grid_color, (450, 50), (450, 650), 4)
+        pygame.draw.line(win, grid_color, (650, 50), (650, 650), 4)
+        # background grid - horizontal
+        pygame.draw.line(win, grid_color, (50, 50), (650, 50), 4)
+        pygame.draw.line(win, grid_color, (50, 250), (650, 250), 4)
+        pygame.draw.line(win, grid_color, (50, 450), (650, 450), 4)
+        pygame.draw.line(win, grid_color, (50, 650), (650, 650), 4) 
+        
+        # walls - vertical
+        wall_ver_1 = pygame.image.load("bg.jpg")
+        wall_ver_1_rect = pygame.Rect(46, 246, 8, 208)
+        win.blit(wall_ver_1, wall_ver_1_rect, wall_ver_1_rect)
+        wall_ver_2_rect = pygame.Rect(246, 46, 8, 608)
+        win.blit(wall_ver_1, wall_ver_2_rect, wall_ver_2_rect)
+        wall_ver_3_rect = pygame.Rect(446, 46, 8, 408)
+        win.blit(wall_ver_1, wall_ver_3_rect, wall_ver_3_rect)
+        wall_ver_4_rect = pygame.Rect(646, 46, 8, 208)
+        # # walls - horizontal
+        wall_ver_1_rect = pygame.Rect(446, 446, 208, 8)
+        win.blit(wall_ver_1, wall_ver_1_rect, wall_ver_1_rect)
+        wall_hor_2_rect = pygame.Rect(246, 646, 408, 8)               
+                
+        # draw the numbers
+        size = 40
+        game = 1
+        n1_1 = gameNumber("1", size, white, (1, 3), "left", game)
+        n1_1.draw(win)
+        n1_2 = gameNumber("1", size, white, (3, 3), "right", game)
+        n1_2.draw(win)
+        n2_1 = gameNumber("2", size, white, (1, 1), "up", game)
+        n2_1.draw(win)
+        n2_2 = gameNumber("2", size, white, (1, 3), "down", game)
+        n2_2.draw(win)
+        n3_1 = gameNumber("3", size, white, (2, 1), "up", game)
+        n3_1.draw(win)
+        n3_2 = gameNumber("3", size, white, (3, 1), "right", game)
+        n3_2.draw(win)
+        n4_1 = gameNumber("4", size, white, (3, 1), "up", game)
+        n4_1.draw(win)
+        n4_2 = gameNumber("4", size, white, (1, 1), "left", game)
+        n4_2.draw(win)
+
+        # draw other things
         goal1.draw()
         goal2.draw()
         sq1.draw()
         sq2.draw()
-        # update the display window
+
+        # update the display window in each loop
         pygame.display.update()
 
-    # check if the two squares are on top of each other
-    if crash:
-        # display the "you lose you stupid" window
-        pass
+        # check if the two squares are on top of each other
+        if crash:
+            # display the "you lose you stupid" window
+            youlose = gameText("Oops... The two squares cannot overlap",
+                               25, red, (150, 300), (100, 295, 500, 40), grey)
+            back = gameText("back to the last move",
+                            25, red, (250, 350), (200, 345, 350, 40), grey)
+            youlose.draw(win)
+            back.draw(win)
+            pygame.display.update()
+            pygame.time.wait(1500)  # 1000 = 1 second
 
-    # check is the user wins
-    elif puzzlewin:
+            # move the squares back to their last position
+            sq1.x, sq1.y = sq1_x, sq1_y
+            sq2.x, sq2.y = sq2_x, sq2_y
+            sq1.draw()
+            sq2.draw()
+            pygame.display.update()
+
+            crash = False
+            run = True
+    
+    # check if the user wins
+    if puzzlewin:
         # display the "you win" window
-        pass
+        youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
+        youwin.draw(win)
+        pygame.display.update()
+        pygame.time.wait(1500)  # 1000 = 1 second
 
     pygame.quit()
     quit()
-
-    except Exception as e:
-        raise
-    else:
-        pass
-    finally:
-        pass
-
-
+                
 main()
