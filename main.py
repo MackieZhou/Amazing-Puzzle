@@ -101,11 +101,13 @@ def main():
 
         choice = 0
         for event in pygame.event.get():
+
             if event.type == pygame.QUIT:
                 choose = False
+                pygame.quit()
+                quit()
 
-            # check for mouse clicks
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 click = pygame.mouse.get_pos()
                 # check if the user chooses each puzzle
                 # print(click)
