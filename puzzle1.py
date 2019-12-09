@@ -263,10 +263,12 @@ def main():
         wall_ver_3_rect = pygame.Rect(446, 46, 8, 408)
         win.blit(wall_ver_1, wall_ver_3_rect, wall_ver_3_rect)
         wall_ver_4_rect = pygame.Rect(646, 46, 8, 208)
-        # # walls - horizontal
-        wall_ver_1_rect = pygame.Rect(446, 446, 208, 8)
-        win.blit(wall_ver_1, wall_ver_1_rect, wall_ver_1_rect)
-        wall_hor_2_rect = pygame.Rect(246, 646, 408, 8)               
+        win.blit(wall_ver_1, wall_ver_4_rect, wall_ver_4_rect)
+        # walls - horizontal
+        wall_hor_1_rect = pygame.Rect(446, 446, 208, 8)
+        win.blit(wall_ver_1, wall_hor_1_rect, wall_hor_1_rect)
+        wall_hor_2_rect = pygame.Rect(246, 646, 408, 8)
+        win.blit(wall_ver_1, wall_hor_2_rect, wall_hor_2_rect)             
                 
         # draw the numbers
         size = 40
