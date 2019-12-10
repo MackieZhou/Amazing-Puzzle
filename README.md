@@ -1,6 +1,7 @@
 ### THE AMAZING PUZZLE
 The final project for CSC 111  
 Mackie Zhou, Grace Li, Winnie Zong
+Group 11
 
 ### How to play the game?
 1. Run the main.py file to play the game.
