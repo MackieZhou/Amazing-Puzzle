@@ -37,7 +37,8 @@ def createsq(choice, win):
 
 
 def main():
-
+    """create a pygame window for the game;
+    game-selection loop and game loop included."""
     # the game window has a dimension of 700*700
     # the grid takes up 600*600
     # the margin on each side is 50
@@ -107,20 +108,26 @@ def main():
                 pygame.quit()
                 quit()
 
+            # check if the user click on anywhere in the window
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click = pygame.mouse.get_pos()
                 # check if the user chooses each puzzle
                 # print(click)
+
+                # check if the user chooses puzzle1
                 if (100 <= click[0] <= 250) & (300 <= click[1] <= 340):
                     choice += 1
                     choose = False
+                # check if the user chooses puzzle2
                 if (275 <= click[0] <= 425) & (300 <= click[1] <= 340):
                     choice += 2
                     choose = False
+                # check if the user chooses puzzle3
                 if (450 <= click[0] <= 600) & (300 <= click[1] <= 340):
                     choice += 3
                     choose = False
 
+    # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
     # print(choice)
 
@@ -136,6 +143,7 @@ def main():
         sq2_x, sq2_y = sq2.coords()[0], sq2.coords()[1]
 
         for event in pygame.event.get():
+            # check if the user wants to close the window
             if event.type == pygame.QUIT:
                 run = False
 
@@ -221,6 +229,8 @@ def main():
             n4_1.draw(win)
             n4_2 = gameNumber("4", size, white, (1, 1), "left", game)
             n4_2.draw(win)
+
+        # draw thing for puzzle2
         elif choice == 2:
             pygame.display.set_caption("Super Super Hard - Level 99")
             # draw everything:
@@ -290,6 +300,8 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("3", size, white, (4, 1), "up", game)
             n6_2.draw(win)
+
+        # draw thing for puzzle2
         elif choice == 3:
             pygame.display.set_caption("Super Super Super Hard - Level 999")
             # draw everything:
@@ -410,7 +422,9 @@ def main():
         pygame.time.wait(1500)  # 1000 = 1 second
         main()
 
+    # quit pygame
     pygame.quit()
+    # quit python
     quit()
 
 
