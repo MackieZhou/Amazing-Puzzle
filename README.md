@@ -2,6 +2,9 @@
 The final project for CSC 111  
 Mackie Zhou, Grace Li, Winnie Zong
 
+### How to play the game?
+1. Run the main.py file to play the game.
+1. A python package, pygame, needs to be installed. See [pygame official website](https://www.pygame.org/wiki/GettingStarted#Pygame%20Installation) to learn how to pip install pygame.
 
 ### Game Description
 Bored by problem sets and papers? Here come the **ultimate crazy puzzles**!!! Choose a difficult level and challenge yourself!
