@@ -46,13 +46,14 @@ def main():
     pygame.display.set_caption("The Amazing Puzzle")
 
     # music:
-    bg_sound = pygame.mixer.Sound("Xmas.wav")
-    pygame.mixer.Sound.play(bg_sound)
+    pygame.mixer.music.load("Xmas.wav")
+    pygame.mixer.music.stop()
+    pygame.mixer.music.play(-1)
     crash_sound = pygame.mixer.Sound("lose.wav")
     move_sound = pygame.mixer.Sound("move.wav")
     win_sound = pygame.mixer.Sound("win.wav")
     click_sound = pygame.mixer.Sound("Toom_Click.wav")
-    bg_sound.set_volume(0.2)
+    pygame.mixer.music.set_volume(0.5)
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -144,6 +145,7 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
+                    pygame.mixer.Sound.play(click_sound)
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -517,6 +519,7 @@ def main():
             youwin.draw(win)
             pygame.display.update()
             pygame.time.wait(1500)  # 1000 = 1 second
+            pygame.mixer.music.stop()
             main()
 
         elif moved:
