@@ -35,9 +35,11 @@ def createsq(choice, win):
         goal2 = puzzle3(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
+
 def rule(choice, win):
     if choice == 4:
         pass
+
 
 def main():
     """create a pygame window for the game;
@@ -51,7 +53,7 @@ def main():
     # music:
     bg_sound = pygame.mixer.Sound("Xmas.wav")
     pygame.mixer.Sound.play( bg_sound )
-    crash_sound = pygame.mixer.Sound( "overlap.wav") 
+    crash_sound = pygame.mixer.Sound( "lose.wav") 
     move_sound = pygame.mixer.Sound( "move.wav" )
     win_sound = pygame.mixer.Sound( "win.wav" )
     click_sound = pygame.mixer.Sound( "Toom_Click.wav" )
@@ -79,7 +81,7 @@ def main():
         game1 = gameText("Level 9", 32, red, (135, 300), (100, 300, 150, 40), gold)
         game2 = gameText("Level 99", 32, green, (300, 300), (275, 300, 150, 40), gold)
         game3 = gameText("Level 999", 32, blue, (470, 300), (450, 300, 150, 40), gold)
-        rule = gameText('Guide', 32, white, (310,500), (280, 500, 140, 40), gold)
+        rule = gameText('Guide', 32, white, (310, 500), (280, 500, 140, 40), gold)
 
         # the rules
         # ruleT1 = "1. hit the left, right, up, or down arrow keys to move red & blue squares"
@@ -147,7 +149,6 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
-                    pygame.mixer.Sound.play(click_sound)
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
@@ -158,6 +159,7 @@ def main():
     run = True
     crash = False  # crash when the two squares ovelap
     puzzlewin = False  # win when the grey squares are covered
+    moved = False
     while run:
 
         # get the original position of the two squares in each loop
@@ -176,26 +178,22 @@ def main():
                 if event.key == pygame.K_LEFT:
                     sq1.move_left()
                     sq2.move_left()
-                    if sq1.coords() != sq2.coords():
-                        pygame.mixer.Sound.play(move_sound)
+                    moved = True
                 # right button hit
                 elif event.key == pygame.K_RIGHT:
                     sq1.move_right()
                     sq2.move_right()
-                    if sq1.coords() != sq2.coords():
-                        pygame.mixer.Sound.play(move_sound)
+                    moved = True
                 # up button hit
                 elif event.key == pygame.K_UP:
                     sq1.move_up()
                     sq2.move_up()
-                    if sq1.coords() != sq2.coords():
-                        pygame.mixer.Sound.play(move_sound)
+                    moved = True
                 # down button hit
-                elif event.key == pygame.K_DOWN: 
+                elif event.key == pygame.K_DOWN:
                     sq1.move_down()
                     sq2.move_down()
-                    if sq1.coords() != sq2.coords():
-                        pygame.mixer.Sound.play(move_sound)
+                    moved = True
 
         # check if the two squares ovelap
         if sq1.coords() == sq2.coords():
@@ -445,6 +443,10 @@ def main():
 
             crash = False
             run = True
+
+        elif (moved and (not crash)):
+            pygame.mixer.Sound.play(move_sound)
+            moved = False
 
     # check if the user wins
     if puzzlewin:
