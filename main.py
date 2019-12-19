@@ -35,6 +35,7 @@ def createsq(choice, win):
         goal2 = puzzle3(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
+
 def main():
     """create a pygame window for the game;
     game-selection loop and game loop included."""
@@ -122,10 +123,6 @@ def main():
                     choice += 4
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
-                if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
-                    choice += 5
-                    choose = False
-                    pygame.mixer.Sound.play(click_sound)
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -189,8 +186,21 @@ def main():
         rule18.draw(win)
         quitbut.draw(win)
         pygame.display.update()
-        if choice == 5:
-            main()
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
+                # check if the user click on anywhere in the window
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    # get the position of the mouse
+                    click = pygame.mouse.get_pos()
+                    # if the user clicks the button
+                    if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
+                        pygame.mixer.Sound.play(click_sound)
+                        main()
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
