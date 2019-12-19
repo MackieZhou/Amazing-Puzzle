@@ -1,6 +1,6 @@
 ### THE AMAZING PUZZLE
 The final project for CSC 111  
-Mackie Zhou, Grace Li, Winnie Zong
+Mackie Zhou, Grace Li, Winnie Zong  
 Group 11
 
 ### How to play the game?
