@@ -35,6 +35,10 @@ def createsq(choice, win):
         goal2 = puzzle3(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
+def rule(choice, win):
+    if choice == 4:
+
+
 
 def main():
     """create a pygame window for the game;
@@ -71,35 +75,37 @@ def main():
         game1 = gameText("Level 9", 32, red, (135, 300), (100, 300, 150, 40), gold)
         game2 = gameText("Level 99", 32, green, (300, 300), (275, 300, 150, 40), gold)
         game3 = gameText("Level 999", 32, blue, (470, 300), (450, 300, 150, 40), gold)
+        rule = gameText('Guide', 32, white, (310,500), (280, 500, 140, 40), gold)
 
         # the rules
-        ruleT1 = "1. hit the left, right, up, or down arrow keys to move red & blue squares"
-        ruleT2 = "2. to win, move the red & blue squares to cover the static grey squares"
-        ruleT3 = "3. you cannot move across a wall"
-        ruleT4 = "4. if you move a colored square out of the arena from one side of a tile, "
-        ruleT5 = "    the colored square will come back into the arena from the other tile "
-        ruleT6 = "    that has the same number marked next to it"
-        ruleT7 = "5. the two colored squares must not overlap"
-        rule1 = gameText(ruleT1, 20, white, (75, 400), (50, 400, 600, 25), black)
-        rule2 = gameText(ruleT2, 20, white, (75, 430), (50, 430, 600, 25), black)
-        rule3 = gameText(ruleT3, 20, white, (75, 460), (50, 460, 600, 25), black)
-        rule4 = gameText(ruleT4, 20, white, (75, 490), (50, 490, 600, 25), black)
-        rule5 = gameText(ruleT5, 20, white, (75, 520), (50, 520, 600, 25), black)
-        rule6 = gameText(ruleT6, 20, white, (75, 550), (50, 550, 600, 25), black)
-        rule7 = gameText(ruleT7, 20, white, (75, 580), (50, 580, 600, 25), black)
+        # ruleT1 = "1. hit the left, right, up, or down arrow keys to move red & blue squares"
+        # ruleT2 = "2. to win, move the red & blue squares to cover the static grey squares"
+        # ruleT3 = "3. you cannot move across a wall"
+        # ruleT4 = "4. if you move a colored square out of the arena from one side of a tile, "
+        # ruleT5 = "    the colored square will come back into the arena from the other tile "
+        # ruleT6 = "    that has the same number marked next to it"
+        # ruleT7 = "5. the two colored squares must not overlap"
+        # rule1 = gameText(ruleT1, 20, white, (75, 400), (50, 400, 600, 25), black)
+        # rule2 = gameText(ruleT2, 20, white, (75, 430), (50, 430, 600, 25), black)
+        # rule3 = gameText(ruleT3, 20, white, (75, 460), (50, 460, 600, 25), black)
+        # rule4 = gameText(ruleT4, 20, white, (75, 490), (50, 490, 600, 25), black)
+        # rule5 = gameText(ruleT5, 20, white, (75, 520), (50, 520, 600, 25), black)
+        # rule6 = gameText(ruleT6, 20, white, (75, 550), (50, 550, 600, 25), black)
+        # rule7 = gameText(ruleT7, 20, white, (75, 580), (50, 580, 600, 25), black)
 
         # draw everything
         title.draw(win)
         game1.draw(win)
         game2.draw(win)
         game3.draw(win)
-        rule1.draw(win)
-        rule2.draw(win)
-        rule3.draw(win)
-        rule4.draw(win)
-        rule5.draw(win)
-        rule6.draw(win)
-        rule7.draw(win)
+        rule.draw(win)
+        # rule1.draw(win)
+        # rule2.draw(win)
+        # rule3.draw(win)
+        # rule4.draw(win)
+        # rule5.draw(win)
+        # rule6.draw(win)
+        # rule7.draw(win)
 
         # update display to show the drawings
         pygame.display.update()
@@ -130,9 +136,14 @@ def main():
                 if (450 <= click[0] <= 600) & (300 <= click[1] <= 340):
                     choice += 3
                     choose = False
+                # check if the user chooses rules
+                if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
+                    choice += 4
+                    choose = False
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
+
     # print(choice)
 
     # the game loop!!!!!
