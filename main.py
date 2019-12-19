@@ -48,6 +48,8 @@ def main():
     # music:
     pygame.mixer.music.load('Xmas.wav')
     pygame.mixer.music.play(-1)
+    crash_sound = pygame.mixer.Sound("overlap.wav")
+    move_sound = pygame.mixer.Sound("move.wav")
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -155,18 +157,22 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 # left button hit
                 if event.key == pygame.K_LEFT:
+                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_left()
                     sq2.move_left()
                 # right button hit
                 elif event.key == pygame.K_RIGHT:
+                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_right()
                     sq2.move_right()
                 # up button hit
                 elif event.key == pygame.K_UP:
+                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_up()
                     sq2.move_up()
                 # down button hit
                 elif event.key == pygame.K_DOWN:
+                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_down()
                     sq2.move_down()
 
@@ -397,6 +403,9 @@ def main():
 
         # check if the two squares are on top of each other
         if crash:
+            # music:
+            pygame.mixer.Sound.play(crash_sound)
+
             # display the "you lose you stupid" window
             youlose = gameText("Oops... The two squares cannot overlap",
                                25, red, (150, 300), (100, 295, 500, 40), grey)
