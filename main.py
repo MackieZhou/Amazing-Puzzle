@@ -36,9 +36,6 @@ def createsq(choice, win):
         return sq1, sq2, goal1, goal2
 
 
-
-
-
 def main():
     """create a pygame window for the game;
     game-selection loop and game loop included."""
@@ -80,7 +77,6 @@ def main():
         game2 = gameText("Level 99", 32, green, (300, 300), (275, 300, 150, 40), gold)
         game3 = gameText("Level 999", 32, blue, (470, 300), (450, 300, 150, 40), gold)
         rule = gameText('Guide', 32, white, (310, 505), (280, 500, 140, 40), gold)
-
 
         # the rules
         # ruleT1 = "1. hit the left, right, up, or down arrow keys to move red & blue squares"
@@ -148,6 +144,71 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
+
+    if choice == 4:
+        pygame.display.set_caption("Guide")
+
+        T1 = 'How to win?'
+        t11 = 'Let the red and blue square overlap the two static grey squares.'
+        T2 = 'How to play?'
+        t21 = '- Choose a difficulty level from level 9, 99, and 999.'
+        t22 = '- Control the movement of the red square and the blue square'
+        t23 = ' by hitting the **left, right, up, or down arrow keys** on your keyboard.'
+        T3 = 'Rules'
+        r11 = '1. The two squares move together (i.e. when you hit up arrow'
+        r12 = '   key, both squares will move up a grid)'
+        r21 = '2. Stop when hitting a wall. If only one of the square is stoped'
+        r22 = '   by the wall, the other one will move normally (this is a '
+        r23 = '   strategy you can use to only move one square).'
+        r31 = '3. The squares will be **transported by the numbers** around the '
+        r32 = '   game board. All the numbers appear in pairs and they are like'
+        r33 = '   a channel between two grids. If you move a colored square out'
+        r34 = '   r of the board from one number, the square will reappear in '
+        r35 = '   the other grid represented by the same number.'
+        r41 = '4. No overlap of the two squares.'
+
+        rule1 = gameText(T1, 20, white, (75, 80), (50, 80, 600, 25), black)
+        rule2 = gameText(t11, 20, white, (75, 110), (50, 110, 600, 25), black)
+        rule3 = gameText(T2, 20, white, (75, 140), (50, 140, 600, 25), black)
+        rule4 = gameText(t21, 20, white, (75, 170), (50, 170, 600, 25), black)
+        rule5 = gameText(t22, 20, white, (75, 200), (50, 200, 600, 25), black)
+        rule6 = gameText(t23, 20, white, (75, 230), (50, 230, 600, 25), black)
+        rule7 = gameText(T3, 20, white, (75, 260), (50, 260, 600, 25), black)
+        rule8 = gameText(r11, 20, white, (75, 290), (50, 290, 600, 25), black)
+        rule9 = gameText(r12, 20, white, (75, 320), (50, 320, 600, 25), black)
+        rule10 = gameText(r21, 20, white, (75, 350), (50, 350, 600, 25), black)
+        rule11 = gameText(r22, 20, white, (75, 380), (50, 380, 600, 25), black)
+        rule12 = gameText(r23, 20, white, (75, 410), (50, 410, 600, 25), black)
+        rule13 = gameText(r31, 20, white, (75, 440), (50, 440, 600, 25), black)
+        rule14 = gameText(r32, 20, white, (75, 470), (50, 470, 600, 25), black)
+        rule15 = gameText(r33, 20, white, (75, 500), (50, 500, 600, 25), black)
+        rule16 = gameText(r34, 20, white, (75, 530), (50, 530, 600, 25), black)
+        rule17 = gameText(r35, 20, white, (75, 560), (50, 560, 600, 25), black)
+        rule18 = gameText(r41, 20, white, (75, 590), (50, 590, 600, 25), black)
+
+        win.fill(black)
+        rule1.draw(win)
+        rule2.draw(win)
+        rule3.draw(win)
+        rule4.draw(win)
+        rule5.draw(win)
+        rule6.draw(win)
+        rule7.draw(win)
+        rule8.draw(win)
+        rule9.draw(win)
+        rule10.draw(win)
+        rule11.draw(win)
+        rule12.draw(win)
+        rule13.draw(win)
+        rule14.draw(win)
+        rule15.draw(win)
+        rule16.draw(win)
+        rule17.draw(win)
+        rule18.draw(win)
+
+        pygame.display.update()
+        pygame.time.wait(1500)  # 1000 = 1 second
+        main()
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
@@ -328,7 +389,6 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("3", size, white, (4, 1), "up", game)
             n6_2.draw(win)
-
         # draw thing for puzzle2
         elif choice == 3:
             pygame.display.set_caption("Super Super Super Hard - Level 999")
@@ -409,67 +469,6 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("6", size, white, (5, 3), "right", game)
             n6_2.draw(win)
-
-        elif choice == 4:
-            pygame.display.set_caption("Guide")
-
-            T1 = 'How to win?'
-            t11 = 'Let the red and blue square overlap the two static grey squares.'
-            T2 = 'How to play?'
-            t21 = '- Choose a difficulty level from level 9, 99, and 999.'
-            t22 = '- Control the movement of the red square and the blue square'
-            t23 = ' by hitting the **left, right, up, or down arrow keys** on your keyboard.'
-            T3 = 'Rules'
-            r11 = '1. The two squares move together (i.e. when you hit up arrow'
-            r12 = '   key, both squares will move up a grid)'
-            r21 = '2. Stop when hitting a wall. If only one of the square is stoped'
-            r22 = '   by the wall, the other one will move normally (this is a '
-            r23 = '   strategy you can use to only move one square).'
-            r31 = '3. The squares will be **transported by the numbers** around the '
-            r32 = '   game board. All the numbers appear in pairs and they are like'
-            r33 = '   a channel between two grids. If you move a colored square out'
-            r34 = '   r of the board from one number, the square will reappear in '
-            r35 = '   the other grid represented by the same number.'
-            r41 = '4. No overlap of the two squares.'
-
-            rule1 = gameText(T1, 20, white, (75, 80), (50, 80, 600, 25), black)
-            rule2 = gameText(t11, 20, white, (75, 110), (50, 110, 600, 25), black)
-            rule3 = gameText(T2, 20, white, (75, 140), (50, 140, 600, 25), black)
-            rule4 = gameText(t21, 20, white, (75, 170), (50, 170, 600, 25), black)
-            rule5 = gameText(t22, 20, white, (75, 200), (50, 200, 600, 25), black)
-            rule6 = gameText(t23, 20, white, (75, 230), (50, 230, 600, 25), black)
-            rule7 = gameText(T3, 20, white, (75, 260), (50, 260, 600, 25), black)
-            rule8 = gameText(r11, 20, white, (75, 290), (50, 290, 600, 25), black)
-            rule9 = gameText(r12, 20, white, (75, 320), (50, 320, 600, 25), black)
-            rule10 = gameText(r21, 20, white, (75, 350), (50, 350, 600, 25), black)
-            rule11 = gameText(r22, 20, white, (75, 380), (50, 380, 600, 25), black)
-            rule12 = gameText(r23, 20, white, (75, 410), (50, 410, 600, 25), black)
-            rule13 = gameText(r31, 20, white, (75, 440), (50, 440, 600, 25), black)
-            rule14 = gameText(r32, 20, white, (75, 470), (50, 470, 600, 25), black)
-            rule15 = gameText(r33, 20, white, (75, 500), (50, 500, 600, 25), black)
-            rule16 = gameText(r34, 20, white, (75, 530), (50, 530, 600, 25), black)
-            rule17 = gameText(r35, 20, white, (75, 560), (50, 560, 600, 25), black)
-            rule18 = gameText(r41, 20, white, (75, 590), (50, 590, 600, 25), black)
-
-            rule1.draw(win)
-            rule2.draw(win)
-            rule3.draw(win)
-            rule4.draw(win)
-            rule5.draw(win)
-            rule6.draw(win)
-            rule7.draw(win)
-            rule8.draw(win)
-            rule9.draw(win)
-            rule10.draw(win)
-            rule11.draw(win)
-            rule12.draw(win)
-            rule13.draw(win)
-            rule14.draw(win)
-            rule15.draw(win)
-            rule16.draw(win)
-            rule17.draw(win)
-            rule18.draw(win)
-
 
             # draw everything:
             # background grid - vertical
