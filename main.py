@@ -37,8 +37,7 @@ def createsq(choice, win):
 
 def rule(choice, win):
     if choice == 4:
-
-
+        pass
 
 def main():
     """create a pygame window for the game;
