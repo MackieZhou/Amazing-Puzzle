@@ -54,8 +54,7 @@ def main():
     crash_sound = pygame.mixer.Sound("overlap.wav")
     move_sound = pygame.mixer.Sound("move.wav")
     win_sound = pygame.mixer.Sound("win.wav")
-    click_sound = pygame.mixer.Sound("click.wav")
-
+    click_sound = pygame.mixer.Sound("Toom_Click.wav")
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -147,6 +146,7 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
+                    pygame.mixer.Sound.play(click_sound)
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
