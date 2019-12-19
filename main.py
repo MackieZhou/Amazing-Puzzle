@@ -391,6 +391,7 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("3", size, white, (4, 1), "up", game)
             n6_2.draw(win)
+
         # draw thing for puzzle2
         elif choice == 3:
             pygame.display.set_caption("Super Super Super Hard - Level 999")
@@ -471,9 +472,6 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("6", size, white, (5, 3), "right", game)
             n6_2.draw(win)
-
-            # draw everything:
-            # background grid - vertical
 
         # draw other things
         goal1.draw()
