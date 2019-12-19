@@ -35,7 +35,6 @@ def createsq(choice, win):
         goal2 = puzzle3(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
-
 def main():
     """create a pygame window for the game;
     game-selection loop and game loop included."""
