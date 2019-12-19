@@ -49,12 +49,13 @@ def main():
     pygame.display.set_caption("The Amazing Puzzle")
 
     # music:
-    pygame.mixer.music.load('Xmas.wav')
-    pygame.mixer.music.play(-1)
-    crash_sound = pygame.mixer.Sound("overlap.wav")
-    move_sound = pygame.mixer.Sound("move.wav")
-    win_sound = pygame.mixer.Sound("win.wav")
-    click_sound = pygame.mixer.Sound("Toom_Click.wav")
+    bg_sound = pygame.mixer.Sound("Xmas.wav")
+    pygame.mixer.Sound.play( bg_sound )
+    crash_sound = pygame.mixer.Sound( "overlap.wav") 
+    move_sound = pygame.mixer.Sound( "move.wav" )
+    win_sound = pygame.mixer.Sound( "win.wav" )
+    click_sound = pygame.mixer.Sound( "Toom_Click.wav" )
+    bg_sound.set_volume(0.2)
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -200,7 +201,7 @@ def main():
         if sq1.coords() == sq2.coords():
             run = False
             crash = True
-            pygame.mixer.Sound.play(crash_sound)
+            pygame.mixer.Sound.play( crash_sound )
 
         # check is the user wins
         elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
