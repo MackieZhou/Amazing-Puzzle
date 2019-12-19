@@ -46,13 +46,14 @@ def main():
     pygame.display.set_caption("The Amazing Puzzle")
 
     # music:
-    bg_sound = pygame.mixer.Sound("Xmas.wav")
-    pygame.mixer.Sound.play(bg_sound)
+    pygame.mixer.music.load("Xmas.wav")
+    pygame.mixer.music.stop()
+    pygame.mixer.music.play(-1)
     crash_sound = pygame.mixer.Sound("lose.wav")
     move_sound = pygame.mixer.Sound("move.wav")
     win_sound = pygame.mixer.Sound("win.wav")
     click_sound = pygame.mixer.Sound("Toom_Click.wav")
-    bg_sound.set_volume(0.2)
+    pygame.mixer.music.set_volume(0.5)
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -78,35 +79,12 @@ def main():
         game3 = gameText("Level 999", 32, blue, (470, 300), (450, 300, 150, 40), gold)
         rule = gameText('Guide', 32, white, (310, 505), (280, 500, 140, 40), gold)
 
-        # the rules
-        # ruleT1 = "1. hit the left, right, up, or down arrow keys to move red & blue squares"
-        # ruleT2 = "2. to win, move the red & blue squares to cover the static grey squares"
-        # ruleT3 = "3. you cannot move across a wall"
-        # ruleT4 = "4. if you move a colored square out of the arena from one side of a tile, "
-        # ruleT5 = "    the colored square will come back into the arena from the other tile "
-        # ruleT6 = "    that has the same number marked next to it"
-        # ruleT7 = "5. the two colored squares must not overlap"
-        # rule1 = gameText(ruleT1, 20, white, (75, 400), (50, 400, 600, 25), black)
-        # rule2 = gameText(ruleT2, 20, white, (75, 430), (50, 430, 600, 25), black)
-        # rule3 = gameText(ruleT3, 20, white, (75, 460), (50, 460, 600, 25), black)
-        # rule4 = gameText(ruleT4, 20, white, (75, 490), (50, 490, 600, 25), black)
-        # rule5 = gameText(ruleT5, 20, white, (75, 520), (50, 520, 600, 25), black)
-        # rule6 = gameText(ruleT6, 20, white, (75, 550), (50, 550, 600, 25), black)
-        # rule7 = gameText(ruleT7, 20, white, (75, 580), (50, 580, 600, 25), black)
-
         # draw everything
         title.draw(win)
         game1.draw(win)
         game2.draw(win)
         game3.draw(win)
         rule.draw(win)
-        # rule1.draw(win)
-        # rule2.draw(win)
-        # rule3.draw(win)
-        # rule4.draw(win)
-        # rule5.draw(win)
-        # rule6.draw(win)
-        # rule7.draw(win)
 
         # update display to show the drawings
         pygame.display.update()
@@ -144,9 +122,13 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
+<<<<<<< HEAD
                 if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
                     choice += 5
                     choose = False
+=======
+                    pygame.mixer.Sound.play(click_sound)
+>>>>>>> d24071f5e10c7c8a80db57e3d171d0e602d69f31
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -392,6 +374,7 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("3", size, white, (4, 1), "up", game)
             n6_2.draw(win)
+
         # draw thing for puzzle2
         elif choice == 3:
             pygame.display.set_caption("Super Super Super Hard - Level 999")
@@ -472,9 +455,6 @@ def main():
             n6_1.draw(win)
             n6_2 = gameNumber("6", size, white, (5, 3), "right", game)
             n6_2.draw(win)
-
-            # draw everything:
-            # background grid - vertical
 
         # draw other things
         goal1.draw()
