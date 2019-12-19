@@ -121,18 +121,11 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
-<<<<<<< HEAD
-=======
                     pygame.mixer.Sound.play(click_sound)
->>>>>>> f912d634567c0d0659214ce8390a2fc3fab21afe
                 if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
                     choice += 5
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
-<<<<<<< HEAD
-
-=======
->>>>>>> f912d634567c0d0659214ce8390a2fc3fab21afe
 
     if choice == 4:
         pygame.display.set_caption("Guide")
