@@ -45,6 +45,10 @@ def main():
     win = pygame.display.set_mode(size=(700, 700))
     pygame.display.set_caption("The Amazing Puzzle")
 
+    # music:
+    pygame.mixer.music.load('Xmas.wav')
+    pygame.mixer.music.play(-1)
+
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
     white = (255, 255, 255)  # color of the numbers
