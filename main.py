@@ -147,7 +147,7 @@ def main():
         r33 = '   a channel between two grids. If you move a colored square out'
         r34 = '   r of the board from one number, the square will reappear in '
         r35 = '   the other grid represented by the same number.'
-        r41 = '4. No overlap of the two squares.'
+        r41 = '4. Square won\'t move and crash sound will appear if OVERLAPED'
 
         rule1 = gameText(T1, 20, white, (75, 80), (50, 80, 600, 25), black)
         rule2 = gameText(t11, 20, white, (75, 110), (50, 110, 600, 25), black)
