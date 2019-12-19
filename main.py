@@ -50,6 +50,9 @@ def main():
     pygame.mixer.music.play(-1)
     crash_sound = pygame.mixer.Sound("overlap.wav")
     move_sound = pygame.mixer.Sound("move.wav")
+    win_sound = pygame.mixer.Sound("win.wav")
+    click_sound = pygame.mixer.Sound("click.wav")
+
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -124,14 +127,17 @@ def main():
                 if (100 <= click[0] <= 250) & (300 <= click[1] <= 340):
                     choice += 1
                     choose = False
+                    pygame.mixer.Sound.play(click_sound)
                 # check if the user chooses puzzle2
                 if (275 <= click[0] <= 425) & (300 <= click[1] <= 340):
                     choice += 2
                     choose = False
+                    pygame.mixer.Sound.play(click_sound)
                 # check if the user chooses puzzle3
                 if (450 <= click[0] <= 600) & (300 <= click[1] <= 340):
                     choice += 3
                     choose = False
+                    pygame.mixer.Sound.play(click_sound)
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
@@ -191,6 +197,7 @@ def main():
              (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
             run = False
             puzzlewin = True
+            pygame.mixer.Sound.play(win_sound)
 
         # refill the window to black in each loop
         win.fill(black)
