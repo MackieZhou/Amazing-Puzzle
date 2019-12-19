@@ -52,11 +52,11 @@ def main():
 
     # music:
     bg_sound = pygame.mixer.Sound("Xmas.wav")
-    pygame.mixer.Sound.play( bg_sound )
-    crash_sound = pygame.mixer.Sound( "lose.wav") 
-    move_sound = pygame.mixer.Sound( "move.wav" )
-    win_sound = pygame.mixer.Sound( "win.wav" )
-    click_sound = pygame.mixer.Sound( "Toom_Click.wav" )
+    pygame.mixer.Sound.play(bg_sound)
+    crash_sound = pygame.mixer.Sound("lose.wav")
+    move_sound = pygame.mixer.Sound("move.wav")
+    win_sound = pygame.mixer.Sound("win.wav")
+    click_sound = pygame.mixer.Sound("Toom_Click.wav")
     bg_sound.set_volume(0.2)
 
     # colors:
@@ -199,14 +199,12 @@ def main():
         if sq1.coords() == sq2.coords():
             run = False
             crash = True
-            pygame.mixer.Sound.play( crash_sound )
 
         # check is the user wins
         elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
              (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
             run = False
             puzzlewin = True
-            pygame.mixer.Sound.play(win_sound)
 
         # refill the window to black in each loop
         win.fill(black)
@@ -424,6 +422,9 @@ def main():
 
         # check if the two squares are on top of each other
         if crash:
+            # play sound effect
+            pygame.mixer.Sound.play(crash_sound)
+
             # display the "you lose you stupid" window
             youlose = gameText("Oops... The two squares cannot overlap",
                                25, red, (150, 300), (100, 295, 500, 40), grey)
@@ -444,18 +445,22 @@ def main():
             crash = False
             run = True
 
-        elif (moved and (not crash)):
+        # check if the user wins
+        elif puzzlewin:
+            # play sound effect
+            pygame.mixer.Sound.play(win_sound)
+
+            # display the "you win" window
+            youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
+            youwin.draw(win)
+            pygame.display.update()
+            pygame.time.wait(1500)  # 1000 = 1 second
+            main()
+
+        elif moved:
+            # play sound effect
             pygame.mixer.Sound.play(move_sound)
             moved = False
-
-    # check if the user wins
-    if puzzlewin:
-        # display the "you win" window
-        youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
-        youwin.draw(win)
-        pygame.display.update()
-        pygame.time.wait(1500)  # 1000 = 1 second
-        main()
 
     # quit pygame
     pygame.quit()
