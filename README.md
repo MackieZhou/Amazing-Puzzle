@@ -8,13 +8,15 @@ Group 11
 1. A python package, pygame, needs to be installed. See [pygame official website](https://www.pygame.org/wiki/GettingStarted#Pygame%20Installation) to learn how to pip install pygame.
 
 ### Game Description
-Bored by problem sets and papers? Here come the **ultimate crazy puzzles**!!! Choose a difficult level and challenge yourself!
+Bored by problem sets and papers? Let our  **Amazing Puzzle** sharp your brain! Choose a difficulty level and challenge yourself!
 1. **How to win?**
-    - Cover the two static grey squares by the two colored squares at the same time, and you win!
+    - Let the red and blue square overlap the two static grey squares.
 1. **How to play?**
-    - Firstly, you want to choose a **difficult level**. You have difficult level 9, 99, and 999 to choose from.
-    - Secondly, play! Control the movement of the red square and the blue square by hitting the **left, right, up, or down arrow keys** on your keyboard. Each keyboard hit has effect on both colored squares, though it's possible that only one square will move.
+    - Choose a **difficulty level** from level 9, 99, and 999.
+    - Control the movement of the red square and the blue square by hitting the **left, right, up, or down arrow keys** on your keyboard. 
 1. **Any rules?**
-    - Unfortunately, you **cannot move across a wall**. (If there's a wall on the left side of the red square and you hit the left arrow key, the red square won't move!) It means you may get into a situation where one square moves, but the other does not.
-    - Pay attention to the numbers around the arena. If you **move a colored square out** of the arena from one side of a tile, the colored square will **come back** into the arena from the other tile that has **the same number** marked next to it.
-    - The two colored squares **must not overlap**.
+    - The two squares **move together** (i.e. when you hit up arrow key, both squares will move up a grid)
+    - **Stop when hitting a wall**. If only one of the square is stoped by the wall, the other one will move normally (this is a strategy you can use to only move one square).
+    - The squares will be **transported by the numbers** around the game board. All the numbers appear in pairs and they are like a channel between two grids. If you move a colored square out of the board from one number, the square will reappear in the other grid represented by the same number.
+    - **No overlap** of the two squares.
+1. **Everything will be clear when you try it out!**
