@@ -144,6 +144,9 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
+                if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
+                    choice += 5
+                    choose = False
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -185,7 +188,7 @@ def main():
         rule16 = gameText(r34, 20, white, (75, 530), (50, 530, 600, 25), black)
         rule17 = gameText(r35, 20, white, (75, 560), (50, 560, 600, 25), black)
         rule18 = gameText(r41, 20, white, (75, 590), (50, 590, 600, 25), black)
-
+        quitbut = gameText('Quit', 20, white, (10, 675), (0, 665, 60, 35), blue)
         win.fill(black)
         rule1.draw(win)
         rule2.draw(win)
@@ -205,10 +208,10 @@ def main():
         rule16.draw(win)
         rule17.draw(win)
         rule18.draw(win)
-
+        quitbut.draw(win)
         pygame.display.update()
-        pygame.time.wait(1500)  # 1000 = 1 second
-        main()
+        if choice == 5:
+            main()
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
