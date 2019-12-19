@@ -180,6 +180,7 @@ def main():
         if sq1.coords() == sq2.coords():
             run = False
             crash = True
+            pygame.mixer.Sound.play(crash_sound)
 
         # check is the user wins
         elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
@@ -403,9 +404,6 @@ def main():
 
         # check if the two squares are on top of each other
         if crash:
-            # music:
-            pygame.mixer.Sound.play(crash_sound)
-
             # display the "you lose you stupid" window
             youlose = gameText("Oops... The two squares cannot overlap",
                                25, red, (150, 300), (100, 295, 500, 40), grey)
