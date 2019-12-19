@@ -517,7 +517,6 @@ def main():
             youwin.draw(win)
             pygame.display.update()
             pygame.time.wait(1500)  # 1000 = 1 second
-            pygame.mixer.music.stop()
             main()
 
         elif moved:
