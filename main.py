@@ -52,6 +52,8 @@ def main():
     # music:
     pygame.mixer.music.load('Xmas.wav')
     pygame.mixer.music.play(-1)
+    crash_sound = pygame.mixer.Sound("overlap.wav")
+    move_sound = pygame.mixer.Sound("move.wav")
 
     # colors:
     grey = (60, 60, 60)  # color of the two "goals"
@@ -168,23 +170,32 @@ def main():
                 if event.key == pygame.K_LEFT:
                     sq1.move_left()
                     sq2.move_left()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
                 # right button hit
                 elif event.key == pygame.K_RIGHT:
                     sq1.move_right()
                     sq2.move_right()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
                 # up button hit
                 elif event.key == pygame.K_UP:
                     sq1.move_up()
                     sq2.move_up()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
                 # down button hit
-                elif event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_DOWN: 
                     sq1.move_down()
                     sq2.move_down()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
 
         # check if the two squares ovelap
         if sq1.coords() == sq2.coords():
             run = False
             crash = True
+            pygame.mixer.Sound.play(crash_sound)
 
         # check is the user wins
         elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
