@@ -157,24 +157,28 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 # left button hit
                 if event.key == pygame.K_LEFT:
-                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_left()
                     sq2.move_left()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
                 # right button hit
                 elif event.key == pygame.K_RIGHT:
-                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_right()
                     sq2.move_right()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
                 # up button hit
                 elif event.key == pygame.K_UP:
-                    pygame.mixer.Sound.play(move_sound)
                     sq1.move_up()
                     sq2.move_up()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
                 # down button hit
-                elif event.key == pygame.K_DOWN:
-                    pygame.mixer.Sound.play(move_sound)
+                elif event.key == pygame.K_DOWN: 
                     sq1.move_down()
                     sq2.move_down()
+                    if sq1.coords() != sq2.coords():
+                        pygame.mixer.Sound.play(move_sound)
 
         # check if the two squares ovelap
         if sq1.coords() == sq2.coords():
