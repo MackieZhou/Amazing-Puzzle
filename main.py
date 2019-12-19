@@ -122,13 +122,11 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
-<<<<<<< HEAD
                 if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
                     choice += 5
                     choose = False
-=======
                     pygame.mixer.Sound.play(click_sound)
->>>>>>> d24071f5e10c7c8a80db57e3d171d0e602d69f31
+
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -138,14 +136,14 @@ def main():
         T2 = 'How to play?'
         t21 = '- Choose a difficulty level from level 9, 99, and 999.'
         t22 = '- Control the movement of the red square and the blue square'
-        t23 = ' by hitting the **left, right, up, or down arrow keys** on your keyboard.'
+        t23 = ' by hitting the left, right, up, or down arrow keys** on your keyboard.'
         T3 = 'Rules'
         r11 = '1. The two squares move together (i.e. when you hit up arrow'
         r12 = '   key, both squares will move up a grid)'
         r21 = '2. Stop when hitting a wall. If only one of the square is stoped'
         r22 = '   by the wall, the other one will move normally (this is a '
         r23 = '   strategy you can use to only move one square).'
-        r31 = '3. The squares will be **transported by the numbers** around the '
+        r31 = '3. The squares will be transported by the numbers around the '
         r32 = '   game board. All the numbers appear in pairs and they are like'
         r33 = '   a channel between two grids. If you move a colored square out'
         r34 = '   r of the board from one number, the square will reappear in '
@@ -478,7 +476,7 @@ def main():
             youlose.draw(win)
             back.draw(win)
             pygame.display.update()
-            pygame.time.wait(1700)  # 1000 = 1 second
+            pygame.time.delay(1700)  # 1000 = 1 second
 
             # move the squares back to their last position
             sq1.x, sq1.y = sq1_x, sq1_y
