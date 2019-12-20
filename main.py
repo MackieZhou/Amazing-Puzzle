@@ -478,14 +478,12 @@ def main():
             pygame.mixer.Sound.play(crash_sound)
 
             # display the "you lose you stupid" window
-            youlose = gameText("Oops... The two squares cannot overlap",
-                               25, red, (150, 300), (100, 295, 500, 40), grey)
-            back = gameText("back to the last move",
-                            25, red, (250, 350), (200, 345, 350, 40), grey)
-            youlose.draw(win)
-            back.draw(win)
-            pygame.display.update()
-            pygame.time.delay(1700)  # 1000 = 1 second
+            # youlose = gameText("Oops... The two squares cannot overlap", 25, red, (150, 300), (100, 295, 500, 40), grey)
+            # back = gameText("back to the last move", 25, red, (250, 350), (200, 345, 350, 40), grey)
+            # youlose.draw(win)
+            # back.draw(win)
+            # pygame.display.update()
+            # pygame.time.delay(1700)  # 1000 = 1 second
 
             # move the squares back to their last position
             sq1.x, sq1.y = sq1_x, sq1_y
@@ -496,6 +494,7 @@ def main():
 
             crash = False
             run = True
+            moved = False
 
         # check if the user wins
         elif puzzlewin:
@@ -503,10 +502,10 @@ def main():
             pygame.mixer.Sound.play(win_sound)
 
             # display the "you win" window
-            youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
-            youwin.draw(win)
-            pygame.display.update()
-            pygame.time.wait(1500)  # 1000 = 1 second
+            #youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
+            #youwin.draw(win)
+            #pygame.display.update()
+            #pygame.time.wait(1500)  # 1000 = 1 second
             main()
 
         elif moved:
