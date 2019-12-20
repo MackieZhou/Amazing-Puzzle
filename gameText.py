@@ -3,7 +3,7 @@ pygame.init()
 
 
 class gameText():
-    """create a text object with a rectangle bg under it"""
+    """create a text object with a rectangle background under it"""
 
     def __init__(self, text, textSize, textcolor, textpos, bgSize, bgcolor):
         """text is a string; txtSize is an integer;
@@ -11,7 +11,8 @@ class gameText():
         where you will draw you text;
         text color and bgcolor are tuple (red, green, blue);
         bgSize is a tuple (x, y, width, length),
-        where (x, y) represents the top-left corner of the bg rectangle;
+        where (x, y) represents the top-left corner of the bg rectangle,
+        NOTE that if you don't want a background, make width&length = 0;
         win is the window on which you want to draw this text object"""
 
         self.txt = text
@@ -21,6 +22,7 @@ class gameText():
 
         self.bgcolor = bgcolor
 
+        # create the text surface and render it
         font = pygame.font.SysFont("arial", self.textSize, True, False)
         self.text = font.render(self.txt, True, self.textcolor)
 

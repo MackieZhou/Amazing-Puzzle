@@ -10,10 +10,13 @@ pygame.init()
 def createsq(choice, win):
     """check the puzzle the user wants to play and create squares"""
 
-    grey = (50, 50, 50)  # color of the two "goals"
+    # color of the two static grey squares
+    grey = (50, 50, 50)
+    # color of the two colored moving squares
     yellow = (254, 208, 134)
     blue = (160, 234, 251)
 
+    # the user wants to play the 3*3 puzzle
     if choice == 1:
         sq1 = puzzle1(yellow, 1, 2, win)
         sq2 = puzzle1(blue, 1, 3, win)
@@ -21,6 +24,7 @@ def createsq(choice, win):
         goal2 = puzzle1(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
+    # the user wants to play the 4*4 puzzle
     if choice == 2:
         sq1 = puzzle2(yellow, 1, 2, win)
         sq2 = puzzle2(blue, 1, 3, win)
@@ -28,6 +32,7 @@ def createsq(choice, win):
         goal2 = puzzle2(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
+    # the user wants to play the 5*5 puzzle
     if choice == 3:
         sq1 = puzzle3(yellow, 1, 2, win)
         sq2 = puzzle3(blue, 1, 3, win)
@@ -44,6 +49,8 @@ def main():
     # the margin on each side is 50
     win = pygame.display.set_mode(size=(700, 700))
     pygame.display.set_caption("The Amazing Puzzle")
+
+    # the main page background picture
     bc1 = pygame.image.load("bc1.jpg")
     bc1_rect = pygame.Rect(0, 0, 700, 700)
     win.blit(bc1, bc1_rect, bc1_rect)
@@ -69,8 +76,8 @@ def main():
     pink = (234, 211, 220)
     darkblue = (31, 24, 49)
 
-    # the loop for the user to choose a puzzle
-    choose = True
+    # the loop for the user to choose puzzle/guide
+    choose = True  # True -- still need to choose
     choice = 0
     while choose:
         # draw the things on the front page of the game
@@ -94,7 +101,7 @@ def main():
 
         choice = 0
         for event in pygame.event.get():
-
+            # check if the user wants to quit the game
             if event.type == pygame.QUIT:
                 choose = False
                 pygame.quit()
@@ -124,13 +131,16 @@ def main():
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
 
+    # if the user clicks the guide button
     if choice == 4:
         pygame.display.set_caption("Guide")
 
+        # the guide page background picture
         bc2 = pygame.image.load("guide.jpg")
         bc2_rect = pygame.Rect(0, 0, 700, 700)
         win.blit(bc2, bc2_rect, bc2_rect)
 
+        # the rules/instructions on the guide page
         t1 = 'How to win?'
         t2 = 'Let the yellow and blue squares overlap the two static grey squares.'
         t3 = 'How to play?'
@@ -171,6 +181,7 @@ def main():
         rule18 = gameText(t18, 22, white, (70, 600), (50, 590, 0, 0), black)
         rule19 = gameText(t19, 22, white, (70, 630), (50, 590, 0, 0), black)
         quitbut = gameText('BACK', 22, white, (5, 670), (0, 665, 60, 35), blue)
+
         rule1.draw(win)
         rule2.draw(win)
         rule3.draw(win)
@@ -193,13 +204,15 @@ def main():
         quitbut.draw(win)
         pygame.display.update()
 
+        # check for events
         while True:
             for event in pygame.event.get():
+                # check if the user wants to quit the game
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
 
-                # check if the user click on anywhere in the window
+                # check if the user clicks anywhere on this page
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # get the position of the mouse
                     click = pygame.mouse.get_pos()
@@ -208,19 +221,18 @@ def main():
                         pygame.mixer.Sound.play(click_sound)
                         main()
 
+    # if instead the user clicks the game 1/2/3 button
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
 
-    # print(choice)
-
-    # the game loop!!!!!
+    # the main game loop!!!!!
     run = True
     crash = False  # crash when the two squares ovelap
     puzzlewin = False  # win when the grey squares are covered
     moved = False
     while run:
 
-        # get the original position of the two squares in each loop
+        # get the positions of the two squares before move
         # in case the two squares crash -- need to back to the last move
         sq1_x, sq1_y = sq1.coords()[0], sq1.coords()[1]
         sq2_x, sq2_y = sq2.coords()[0], sq2.coords()[1]
@@ -258,7 +270,7 @@ def main():
             run = False
             crash = True
 
-        # check is the user wins
+        # check if the user wins
         elif (sq1.coords() == goal1.coords() and sq2.coords() == goal2.coords()) or\
              (sq1.coords() == goal2.coords() and sq2.coords() == goal1.coords()):
             run = False
@@ -475,6 +487,8 @@ def main():
         # draw other things
         goal1.draw()
         goal2.draw()
+
+        # if the two squares ovelap, do not display them on the surface
         if not crash:
             sq1.draw()
             sq2.draw()

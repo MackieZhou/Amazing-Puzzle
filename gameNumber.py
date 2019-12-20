@@ -3,8 +3,9 @@ pygame.init()
 
 
 class gameNumber():
+    """for creating numbers around the game board"""
 
-    def_font = "arial"
+    def_font = "arial"  # the default font of this class
 
     def __init__(self, text, size, color, pos, direction, puzzle):
         """create a BOLD but NOT ITALIC text object; text is a string;
@@ -76,6 +77,7 @@ class gameNumber():
                 y2 = 652
 
         self.coords = (x2, y2)
+        # create the text surface and render it
         fon = pygame.font.SysFont(gameNumber.def_font, self.size, True, False)
         self.sur = fon.render(self.text, True, self.color)
 

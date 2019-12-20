@@ -4,7 +4,7 @@ Mackie Zhou, Grace Li, Winnie Zong
 Group 11
 
 ### How to play the game?
-1. Run the **main.py** file to play the game.
+1. Run the **Project.py** file to play the game.
 1. A python package, **pygame**, needs to be installed. See [pygame official website](https://www.pygame.org/wiki/GettingStarted#Pygame%20Installation) to learn how to pip install pygame.
 
 ### Game Description
