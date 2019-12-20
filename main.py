@@ -501,6 +501,7 @@ def main():
         elif puzzlewin:
             # play sound effect
             pygame.mixer.Sound.play(win_sound)
+            pygame.time.delay(1000)
             main()
 
         elif moved:
