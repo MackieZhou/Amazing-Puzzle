@@ -69,10 +69,10 @@ def main():
     grid_color = (40, 60, 40)
     gold = (100, 100, 0)
 
-    yellow = (247,231,171)
-    blue1 = (145,154,184)
-    blue2 = (106,123,181)
-    pink = (234,211,220)
+    yellow = (247, 231, 171)
+    blue1 = (145, 154, 184)
+    blue2 = (106, 123, 181)
+    pink = (234, 211, 220)
     darkblue = (31, 24, 49)
 
     # the loop for the user to choose a puzzle
@@ -85,7 +85,7 @@ def main():
         # the game buttons
         game1 = gameText("Level 9", 32, darkblue, (125, 290), (125, 280, 90, 40), yellow)
         game2 = gameText("Level 99", 32, darkblue, (310, 290), (310, 280, 100, 40), pink)
-        game3 = gameText("Level 999", 32, darkblue, (490, 290), (490, 280, 120, 40),blue1)
+        game3 = gameText("Level 999", 32, darkblue, (490, 290), (490, 280, 120, 40), blue1)
         rule = gameText('Guide', 27, white, (600, 540), (600, 540, 60, 20), blue2)
 
         # draw everything
@@ -128,21 +128,10 @@ def main():
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
                 # check if the user chooses rules
-                if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
+                if (600 <= click[0] <= 660) & (540 <= click[1] <= 560):
                     choice += 4
                     choose = False
-<<<<<<< HEAD
-
                     pygame.mixer.Sound.play(click_sound)
-
-                if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
-                    choice += 5
-                    choose = False
-                    pygame.mixer.Sound.play(click_sound)
-
-=======
-                    pygame.mixer.Sound.play(click_sound)
->>>>>>> e95e6bd60939de36f749892be74d4b3a6eccb663
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -497,15 +486,6 @@ def main():
         if crash:
             # play sound effect
             pygame.mixer.Sound.play(crash_sound)
-
-            # display the "you lose you stupid" window
-            # youlose = gameText("Oops... The two squares cannot overlap", 25, red, (150, 300), (100, 295, 500, 40), grey)
-            # back = gameText("back to the last move", 25, red, (250, 350), (200, 345, 350, 40), grey)
-            # youlose.draw(win)
-            # back.draw(win)
-            # pygame.display.update()
-            # pygame.time.delay(1700)  # 1000 = 1 second
-
             # move the squares back to their last position
             sq1.x, sq1.y = sq1_x, sq1_y
             sq2.x, sq2.y = sq2_x, sq2_y
@@ -521,12 +501,6 @@ def main():
         elif puzzlewin:
             # play sound effect
             pygame.mixer.Sound.play(win_sound)
-
-            # display the "you win" window
-            #youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
-            #youwin.draw(win)
-            #pygame.display.update()
-            #pygame.time.wait(1500)  # 1000 = 1 second
             main()
 
         elif moved:
