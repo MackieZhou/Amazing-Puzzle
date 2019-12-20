@@ -10,26 +10,26 @@ pygame.init()
 def createsq(choice, win):
     """check the puzzle the user wants to play and create squares"""
 
-    grey = (60, 60, 60)
-    red = (255, 0, 0)
-    blue = (0, 0, 255)
+    grey = (50, 50, 50)  # color of the two "goals"
+    yellow = (254, 208, 134)
+    blue = (160, 234, 251)
 
     if choice == 1:
-        sq1 = puzzle1(red, 1, 2, win)
+        sq1 = puzzle1(yellow, 1, 2, win)
         sq2 = puzzle1(blue, 1, 3, win)
         goal1 = puzzle1(grey, 1, 1, win)
         goal2 = puzzle1(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
     if choice == 2:
-        sq1 = puzzle2(red, 1, 2, win)
+        sq1 = puzzle2(yellow, 1, 2, win)
         sq2 = puzzle2(blue, 1, 3, win)
         goal1 = puzzle2(grey, 1, 1, win)
         goal2 = puzzle2(grey, 3, 1, win)
         return sq1, sq2, goal1, goal2
 
     if choice == 3:
-        sq1 = puzzle3(red, 1, 2, win)
+        sq1 = puzzle3(yellow, 1, 2, win)
         sq2 = puzzle3(blue, 1, 3, win)
         goal1 = puzzle3(grey, 1, 1, win)
         goal2 = puzzle3(grey, 3, 1, win)
@@ -59,16 +59,10 @@ def main():
     pygame.mixer.music.set_volume(0.5)
 
     # colors:
-    grey = (60, 60, 60)  # color of the two "goals"
     white = (255, 255, 255)  # color of the numbers
     black = (0, 0, 0)  # background color
-    red = (255, 0, 0)
-    green = (0, 255, 0)
-    blue = (0, 0, 255)
-    aqua = (0, 255, 255)
-    grid_color = (4, 60, 40)
-    gold = (100, 100, 0)
-
+    blue = (80, 80, 255)
+    grid_color = (40, 50, 40)
     yellow = (247, 231, 171)
     blue1 = (145, 154, 184)
     blue2 = (106, 123, 181)
@@ -80,13 +74,13 @@ def main():
     choice = 0
     while choose:
         # draw the things on the front page of the game
-        title = gameText("The AMAZING Puzzle", 50, white, (140, 100), (100, 100, 400, 50), darkblue)
+        title = gameText("The AMAZING Puzzle", 50, white, (140, 100), (140, 100, 0, 0), darkblue)
 
         # the game buttons
-        game1 = gameText("Level 9", 32, darkblue, (125, 290), (125, 280, 90, 40), yellow)
-        game2 = gameText("Level 99", 32, darkblue, (310, 290), (310, 280, 100, 40), pink)
-        game3 = gameText("Level 999", 32, darkblue, (490, 290), (490, 280, 120, 40), blue1)
-        rule = gameText('Guide', 27, white, (600, 540), (600, 540, 60, 20), blue2)
+        game1 = gameText("Level 9", 32, darkblue, (125, 290), (125, 290, 0, 0), yellow)
+        game2 = gameText("Level 99", 32, darkblue, (310, 290), (310, 290, 0, 0), pink)
+        game3 = gameText("Level 999", 32, darkblue, (490, 290), (490, 290, 0, 0), blue1)
+        rule = gameText('Guide', 27, white, (600, 540), (600, 540, 0, 0), blue2)
 
         # draw everything
         title.draw(win)
@@ -109,26 +103,23 @@ def main():
             # check if the user click on anywhere in the window
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click = pygame.mouse.get_pos()
-                # check if the user chooses each puzzle
-                # print(click)
-
                 # check if the user chooses puzzle1
-                if (90 <= click[0] <= 260) & (290 <= click[1] <= 350):
+                if (95 <= click[0] <= 245) & (260 <= click[1] <= 360):
                     choice += 1
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
                 # check if the user chooses puzzle2
-                if (265 <= click[0] <= 435) & (290 <= click[1] <= 350):
+                if (280 <= click[0] <= 445) & (260 <= click[1] <= 360):
                     choice += 2
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
                 # check if the user chooses puzzle3
-                if (440 <= click[0] <= 610) & (290 <= click[1] <= 350):
+                if (460 <= click[0] <= 640) & (260 <= click[1] <= 360):
                     choice += 3
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
                 # check if the user chooses rules
-                if (590 <= click[0] <= 670) & (530 <= click[1] <= 570):
+                if (580 <= click[0] <= 685) & (520 <= click[1] <= 595):
                     choice += 4
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
@@ -136,45 +127,50 @@ def main():
     if choice == 4:
         pygame.display.set_caption("Guide")
 
-        T1 = 'How to win?'
-        t11 = 'Let the red and blue square overlap the two static grey squares.'
-        T2 = 'How to play?'
-        t21 = '- Choose a difficulty level from level 9, 99, and 999.'
-        t22 = '- Control the movement of the red square and the blue square'
-        t23 = ' by hitting the left, right, up, or down arrow keys** on your keyboard.'
-        T3 = 'Rules'
-        r11 = '1. The two squares move together (i.e. when you hit up arrow'
-        r12 = '   key, both squares will move up a grid)'
-        r21 = '2. Stop when hitting a wall. If only one of the square is stoped'
-        r22 = '   by the wall, the other one will move normally (this is a '
-        r23 = '   strategy you can use to only move one square).'
-        r31 = '3. The squares will be transported by the numbers around the '
-        r32 = '   game board. All the numbers appear in pairs and they are like'
-        r33 = '   a channel between two grids. If you move a colored square out'
-        r34 = '   r of the board from one number, the square will reappear in '
-        r35 = '   the other grid represented by the same number.'
-        r41 = '4. Square won\'t move and crash sound will appear if OVERLAPED'
+        bc2 = pygame.image.load("guide.jpg")
+        bc2_rect = pygame.Rect(0, 0, 700, 700)
+        win.blit(bc2, bc2_rect, bc2_rect)
 
-        rule1 = gameText(T1, 20, white, (75, 80), (50, 80, 600, 25), black)
-        rule2 = gameText(t11, 20, white, (75, 110), (50, 110, 600, 25), black)
-        rule3 = gameText(T2, 20, white, (75, 140), (50, 140, 600, 25), black)
-        rule4 = gameText(t21, 20, white, (75, 170), (50, 170, 600, 25), black)
-        rule5 = gameText(t22, 20, white, (75, 200), (50, 200, 600, 25), black)
-        rule6 = gameText(t23, 20, white, (75, 230), (50, 230, 600, 25), black)
-        rule7 = gameText(T3, 20, white, (75, 260), (50, 260, 600, 25), black)
-        rule8 = gameText(r11, 20, white, (75, 290), (50, 290, 600, 25), black)
-        rule9 = gameText(r12, 20, white, (75, 320), (50, 320, 600, 25), black)
-        rule10 = gameText(r21, 20, white, (75, 350), (50, 350, 600, 25), black)
-        rule11 = gameText(r22, 20, white, (75, 380), (50, 380, 600, 25), black)
-        rule12 = gameText(r23, 20, white, (75, 410), (50, 410, 600, 25), black)
-        rule13 = gameText(r31, 20, white, (75, 440), (50, 440, 600, 25), black)
-        rule14 = gameText(r32, 20, white, (75, 470), (50, 470, 600, 25), black)
-        rule15 = gameText(r33, 20, white, (75, 500), (50, 500, 600, 25), black)
-        rule16 = gameText(r34, 20, white, (75, 530), (50, 530, 600, 25), black)
-        rule17 = gameText(r35, 20, white, (75, 560), (50, 560, 600, 25), black)
-        rule18 = gameText(r41, 20, white, (75, 590), (50, 590, 600, 25), black)
-        quitbut = gameText('Quit', 20, white, (10, 675), (0, 665, 60, 35), blue)
-        win.fill(black)
+        t1 = 'How to win?'
+        t2 = 'Let the yellow and blue squares overlap the two static grey squares.'
+        t3 = 'How to play?'
+        t4 = '-- Choose a difficulty level from level 9, 99, and 999.'
+        t5 = '-- Control the movement of the yellow square and the blue square'
+        t6 = '   by hitting the left, right, up, or down arrow keys on your keyboard.'
+        t7 = 'Rules'
+        t8 = '1. The two squares move together (i.e. if you hit the up arrow'
+        t9 = '    key, both squares will move up a grid)'
+        t10 = '2. NO MOVEMENT when hitting a wall. If only one of the squares is'
+        t11 = '    stopped by the wall, the other one will move normally (this is'
+        t12 = '    a strategy you can use to only move one square).'
+        t13 = '3. The squares will be transported by  numbers around the game'
+        t14 = '    board. All the numbers appear in pairs and they are like'
+        t15 = '    channels between grids. If you move a colored square out'
+        t16 = '    of the board from one number, the square will reappear in'
+        t17 = '    the other grid surrounded by the same number.'
+        t18 = '4. Squares won\'t OVERLAP!! If your movement is going to make them'
+        t19 = '    overlap, they won\'t move and the crash sound will be played.'
+
+        rule1 = gameText(t1, 22, white, (70, 30), (50, 80, 0, 0), black)
+        rule2 = gameText(t2, 22, white, (70, 60), (50, 110, 0, 0), black)
+        rule3 = gameText(t3, 22, white, (70, 120), (50, 140, 0, 0), black)
+        rule4 = gameText(t4, 22, white, (70, 150), (50, 170, 0, 0), black)
+        rule5 = gameText(t5, 22, white, (70, 180), (50, 200, 0, 0), black)
+        rule6 = gameText(t6, 22, white, (70, 210), (50, 230, 0, 0), black)
+        rule7 = gameText(t7, 22, white, (70, 270), (50, 260, 0, 0), black)
+        rule8 = gameText(t8, 22, white, (70, 300), (50, 290, 0, 0), black)
+        rule9 = gameText(t9, 22, white, (70, 330), (50, 320, 0, 0), black)
+        rule10 = gameText(t10, 22, white, (70, 360), (50, 350, 0, 0), black)
+        rule11 = gameText(t11, 22, white, (70, 390), (50, 380, 0, 0), black)
+        rule12 = gameText(t12, 22, white, (70, 420), (50, 410, 0, 0), black)
+        rule13 = gameText(t13, 22, white, (70, 450), (50, 440, 0, 0), black)
+        rule14 = gameText(t14, 22, white, (70, 480), (50, 470, 0, 0), black)
+        rule15 = gameText(t15, 22, white, (70, 510), (50, 500, 0, 0), black)
+        rule16 = gameText(t16, 22, white, (70, 540), (50, 530, 0, 0), black)
+        rule17 = gameText(t17, 22, white, (70, 570), (50, 560, 0, 0), black)
+        rule18 = gameText(t18, 22, white, (70, 600), (50, 590, 0, 0), black)
+        rule19 = gameText(t19, 22, white, (70, 630), (50, 590, 0, 0), black)
+        quitbut = gameText('BACK', 22, white, (5, 670), (0, 665, 60, 35), blue)
         rule1.draw(win)
         rule2.draw(win)
         rule3.draw(win)
@@ -193,6 +189,7 @@ def main():
         rule16.draw(win)
         rule17.draw(win)
         rule18.draw(win)
+        rule19.draw(win)
         quitbut.draw(win)
         pygame.display.update()
 
@@ -273,7 +270,7 @@ def main():
         # draw things for puzzle1
         if choice == 1:
             pygame.display.set_caption("Super Hard - Level 9")
-            
+
             # background grid - vertical
             pygame.draw.line(win, grid_color, (50, 50), (50, 650), 4)
             pygame.draw.line(win, grid_color, (250, 50), (250, 650), 4)
@@ -324,7 +321,7 @@ def main():
         # draw thing for puzzle2
         elif choice == 2:
             pygame.display.set_caption("Super Super Hard - Level 99")
-            
+
             # draw everything:
             # background grid - vertical
             pygame.draw.line(win, grid_color, (50, 50), (50, 650), 6)
@@ -396,7 +393,7 @@ def main():
         # draw thing for puzzle2
         elif choice == 3:
             pygame.display.set_caption("Super Super Super Hard - Level 999")
-            
+
             # draw everything:
             # background grid - vertical
             pygame.draw.line(win, grid_color, (50, 50), (50, 650), 4)
