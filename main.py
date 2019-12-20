@@ -466,8 +466,9 @@ def main():
         # draw other things
         goal1.draw()
         goal2.draw()
-        sq1.draw()
-        sq2.draw()
+        if not crash:
+            sq1.draw()
+            sq2.draw()
 
         # update the display window in each loop
         pygame.display.update()
