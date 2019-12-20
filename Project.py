@@ -180,7 +180,7 @@ def main():
         rule17 = gameText(t17, 22, white, (70, 570), (50, 560, 0, 0), black)
         rule18 = gameText(t18, 22, white, (70, 600), (50, 590, 0, 0), black)
         rule19 = gameText(t19, 22, white, (70, 630), (50, 590, 0, 0), black)
-        quitbut = gameText('BACK', 22, white, (5, 670), (0, 665, 60, 35), blue)
+        quitbut = gameText('BACK', 22, white, (5, 670), (0, 665, 70, 35), blue)
 
         rule1.draw(win)
         rule2.draw(win)

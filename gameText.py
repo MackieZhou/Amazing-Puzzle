@@ -5,6 +5,9 @@ pygame.init()
 class gameText():
     """create a text object with a rectangle background under it"""
 
+    # set a default font for this class
+    def_font = "Times new roman"
+
     def __init__(self, text, textSize, textcolor, textpos, bgSize, bgcolor):
         """text is a string; txtSize is an integer;
         textpos is a tuple (x, y) which represent the location
@@ -23,7 +26,7 @@ class gameText():
         self.bgcolor = bgcolor
 
         # create the text surface and render it
-        font = pygame.font.SysFont("arial", self.textSize, True, False)
+        font = pygame.font.SysFont(gameText.def_font, self.textSize, False, False)
         self.text = font.render(self.txt, True, self.textcolor)
 
         self.bg = pygame.Rect(bgSize[0], bgSize[1], bgSize[2], bgSize[3])
