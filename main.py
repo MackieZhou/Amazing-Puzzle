@@ -44,6 +44,9 @@ def main():
     # the margin on each side is 50
     win = pygame.display.set_mode(size=(700, 700))
     pygame.display.set_caption("The Amazing Puzzle")
+    bc1 = pygame.image.load("bc1.jpg")
+    bc1_rect = pygame.Rect(0, 0, 700, 700)
+    win.blit(bc1, bc1_rect, bc1_rect)
 
     # music:
     pygame.mixer.music.load("Xmas.wav")
@@ -66,18 +69,24 @@ def main():
     grid_color = (40, 60, 40)
     gold = (100, 100, 0)
 
+    yellow = (247,231,171)
+    blue1 = (145,154,184)
+    blue2 = (106,123,181)
+    pink = (234,211,220)
+    darkblue = (31, 24, 49)
+
     # the loop for the user to choose a puzzle
     choose = True
     choice = 0
     while choose:
         # draw the things on the front page of the game
-        title = gameText("The AMAZING Puzzle", 50, aqua, (140, 150), (150, 150, 400, 60), black)
+        title = gameText("The AMAZING Puzzle", 50, white, (140, 100), (100, 100, 400, 50), darkblue)
 
         # the game buttons
-        game1 = gameText("Level 9", 32, red, (135, 300), (100, 300, 150, 40), gold)
-        game2 = gameText("Level 99", 32, green, (300, 300), (275, 300, 150, 40), gold)
-        game3 = gameText("Level 999", 32, blue, (470, 300), (450, 300, 150, 40), gold)
-        rule = gameText('Guide', 32, white, (310, 505), (280, 500, 140, 40), gold)
+        game1 = gameText("Level 9", 32, darkblue, (125, 290), (125, 280, 90, 40), yellow)
+        game2 = gameText("Level 99", 32, darkblue, (310, 290), (310, 280, 100, 40), pink)
+        game3 = gameText("Level 999", 32, darkblue, (490, 290), (490, 280, 120, 40),blue1)
+        rule = gameText('Guide', 27, white, (600, 540), (600, 540, 60, 20), blue2)
 
         # draw everything
         title.draw(win)
@@ -122,18 +131,14 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
-<<<<<<< HEAD
-=======
+
                     pygame.mixer.Sound.play(click_sound)
->>>>>>> f912d634567c0d0659214ce8390a2fc3fab21afe
+
                 if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
                     choice += 5
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
-<<<<<<< HEAD
 
-=======
->>>>>>> f912d634567c0d0659214ce8390a2fc3fab21afe
 
     if choice == 4:
         pygame.display.set_caption("Guide")
