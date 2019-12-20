@@ -66,7 +66,7 @@ def main():
     green = (0, 255, 0)
     blue = (0, 0, 255)
     aqua = (0, 255, 255)
-    grid_color = (40, 60, 40)
+    grid_color = (4, 60, 40)
     gold = (100, 100, 0)
 
     yellow = (247, 231, 171)
@@ -273,6 +273,7 @@ def main():
         # draw things for puzzle1
         if choice == 1:
             pygame.display.set_caption("Super Hard - Level 9")
+            
             # background grid - vertical
             pygame.draw.line(win, grid_color, (50, 50), (50, 650), 4)
             pygame.draw.line(win, grid_color, (250, 50), (250, 650), 4)
@@ -323,6 +324,7 @@ def main():
         # draw thing for puzzle2
         elif choice == 2:
             pygame.display.set_caption("Super Super Hard - Level 99")
+            
             # draw everything:
             # background grid - vertical
             pygame.draw.line(win, grid_color, (50, 50), (50, 650), 6)
@@ -394,6 +396,7 @@ def main():
         # draw thing for puzzle2
         elif choice == 3:
             pygame.display.set_caption("Super Super Super Hard - Level 999")
+            
             # draw everything:
             # background grid - vertical
             pygame.draw.line(win, grid_color, (50, 50), (50, 650), 4)
