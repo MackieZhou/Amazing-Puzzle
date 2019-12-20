@@ -131,6 +131,7 @@ def main():
                 if (280 <= click[0] <= 420) & (500 <= click[1] <= 540):
                     choice += 4
                     choose = False
+<<<<<<< HEAD
 
                     pygame.mixer.Sound.play(click_sound)
 
@@ -139,6 +140,9 @@ def main():
                     choose = False
                     pygame.mixer.Sound.play(click_sound)
 
+=======
+                    pygame.mixer.Sound.play(click_sound)
+>>>>>>> e95e6bd60939de36f749892be74d4b3a6eccb663
 
     if choice == 4:
         pygame.display.set_caption("Guide")
@@ -160,7 +164,7 @@ def main():
         r33 = '   a channel between two grids. If you move a colored square out'
         r34 = '   r of the board from one number, the square will reappear in '
         r35 = '   the other grid represented by the same number.'
-        r41 = '4. No overlap of the two squares.'
+        r41 = '4. Square won\'t move and crash sound will appear if OVERLAPED'
 
         rule1 = gameText(T1, 20, white, (75, 80), (50, 80, 600, 25), black)
         rule2 = gameText(t11, 20, white, (75, 110), (50, 110, 600, 25), black)
@@ -202,8 +206,21 @@ def main():
         rule18.draw(win)
         quitbut.draw(win)
         pygame.display.update()
-        if choice == 5:
-            main()
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
+                # check if the user click on anywhere in the window
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    # get the position of the mouse
+                    click = pygame.mouse.get_pos()
+                    # if the user clicks the button
+                    if (0 <= click[0] <= 60) & (665 <= click[1] <= 700):
+                        pygame.mixer.Sound.play(click_sound)
+                        main()
 
     # create the 2 colored moving squares & 2 grey static squares
     sq1, sq2, goal1, goal2 = createsq(choice, win)
@@ -469,8 +486,9 @@ def main():
         # draw other things
         goal1.draw()
         goal2.draw()
-        sq1.draw()
-        sq2.draw()
+        if not crash:
+            sq1.draw()
+            sq2.draw()
 
         # update the display window in each loop
         pygame.display.update()
@@ -481,14 +499,12 @@ def main():
             pygame.mixer.Sound.play(crash_sound)
 
             # display the "you lose you stupid" window
-            youlose = gameText("Oops... The two squares cannot overlap",
-                               25, red, (150, 300), (100, 295, 500, 40), grey)
-            back = gameText("back to the last move",
-                            25, red, (250, 350), (200, 345, 350, 40), grey)
-            youlose.draw(win)
-            back.draw(win)
-            pygame.display.update()
-            pygame.time.delay(1700)  # 1000 = 1 second
+            # youlose = gameText("Oops... The two squares cannot overlap", 25, red, (150, 300), (100, 295, 500, 40), grey)
+            # back = gameText("back to the last move", 25, red, (250, 350), (200, 345, 350, 40), grey)
+            # youlose.draw(win)
+            # back.draw(win)
+            # pygame.display.update()
+            # pygame.time.delay(1700)  # 1000 = 1 second
 
             # move the squares back to their last position
             sq1.x, sq1.y = sq1_x, sq1_y
@@ -499,6 +515,7 @@ def main():
 
             crash = False
             run = True
+            moved = False
 
         # check if the user wins
         elif puzzlewin:
@@ -506,10 +523,10 @@ def main():
             pygame.mixer.Sound.play(win_sound)
 
             # display the "you win" window
-            youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
-            youwin.draw(win)
-            pygame.display.update()
-            pygame.time.wait(1500)  # 1000 = 1 second
+            #youwin = gameText("Congrats! You Win!!", 40, red, (190, 300), (150, 300, 400, 50), grey)
+            #youwin.draw(win)
+            #pygame.display.update()
+            #pygame.time.wait(1500)  # 1000 = 1 second
             main()
 
         elif moved:
